@@ -1,9 +1,13 @@
+# Look in hidden files by default.
+--hidden
+
 # Look inside zip files if you can.
 --search-zip
 
 # Because who cares about case!?
 --smart-case
 
-# Skip etags files (used for Emacs-compatible tags)
---glob=!etags
+# Skip the git directory, TAGS, and etags files (used for Emacs-compatible tags)
+--glob=!.git
 --glob=!TAGS
+--glob=!etags
