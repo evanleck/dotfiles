@@ -1,0 +1,76 @@
+[user]
+  name = Evan Lecklider
+  email = evan@lecklider.com
+[core]
+  excludesfile = /Users/evan/.config/git/ignore
+  quotepath = false
+  autocrlf = false
+  pager = less -r
+	editor = mvim -f
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+[alias]
+  b = branch
+  c = commit
+  co = checkout
+  d = diff
+  down = pull --rebase
+  ds = diff --staged
+  dt = difftool
+  grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  l = log --graph --abbrev-commit --date=relative
+  latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  prune = fetch --prune
+  recent = log --stat --since='3 Days Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  s = status -sb
+  sha = rev-parse HEAD
+  staged = diff --staged
+  today = log --stat --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  wc = whatchanged -p
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[color "diff"]
+  whitespace = red reverse
+  plain = black
+  meta = 11
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  commit = yellow bold
+[color "status"]
+  added = yellow # files deleted with "git rm" are this color too
+  changed = green # deleted items NOT done with "git rm" are this color too
+  untracked = cyan
+[mergetool]
+  keepBackup = true
+  prompt = false
+[status]
+  showUntrackedFiles = all
+[push]
+  default = simple
+  followTags = true
+[merge]
+  conflictstyle = diff3
+[difftool]
+  prompt = false
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  required = true
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22

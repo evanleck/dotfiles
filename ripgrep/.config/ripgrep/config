@@ -1,0 +1,9 @@
+# Look inside zip files if you can.
+--search-zip
+
+# Because who cares about case!?
+--smart-case
+
+# Skip etags files (used for Emacs-compatible tags)
+--glob=!etags
+--glob=!TAGS

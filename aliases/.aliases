@@ -1,0 +1,21 @@
+# Simple command line speedtest.
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
+
+# Always use your bundle.
+alias be='bundle exec'
+
+# We just do this all the time.
+alias g='git'
+
+# Because lazy.
+alias gg='lazygit'
+
+# Always clearing.
+alias c='clear'
+
+# Always updating.
+alias brewup='brew update && brew upgrade && brew cask upgrade'
+
+# OMG where have these been all of my life?
+alias cat=bat
+alias ls=exa
