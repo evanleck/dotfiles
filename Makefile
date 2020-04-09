@@ -8,7 +8,7 @@ MAKEFLAGS += --no-builtin-rules
 
 .DEFAULT_GOAL := stow
 
-stow: Brewfile
+stow:
 	stow --target $(HOME) --verbose $(wildcard */)
 .PHONY: stow
 
