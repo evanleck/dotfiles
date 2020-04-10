@@ -6,6 +6,8 @@ these are mine.
 Powered by [stow][stow] and inspired in great part by "[Managing dotfiles with
 GNU stow][managing]."
 
+My [Vim configuration][dotvim] is separate.
+
 [stow]: https://www.gnu.org/software/stow/
 [managing]: https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
 
@@ -13,3 +15,5 @@ GNU stow][managing]."
 [gb]: https://github.com/garybernhardt/dotfiles
 [jf]: https://github.com/jessfraz/dotfiles
 [xero]: https://github.com/xero/dotfiles
+
+[dotvim]: https://github.com/evanleck/dotvim
