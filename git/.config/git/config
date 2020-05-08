@@ -24,12 +24,13 @@
   latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
   lol = log --pretty=oneline --abbrev-commit --graph --decorate
   prune = fetch --prune
-  recent = log --stat --since='3 Days Ago' --graph --pretty=oneline --abbrev-commit --date=relative
   s = status -sb
   sha = rev-parse HEAD
   staged = diff --staged
-  today = log --stat --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
   wc = whatchanged -p
+  today = log --stat --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  recent = log --stat --since='3 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  week = log --stat --since='7 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
 [color]
   ui = auto
   branch = auto
