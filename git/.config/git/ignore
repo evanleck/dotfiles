@@ -46,3 +46,6 @@ Thumbs.db
 
 # Nova
 .nova
+
+# Resilio/BitTorrent Sync
+.sync
