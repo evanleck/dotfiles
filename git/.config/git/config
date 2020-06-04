@@ -2,7 +2,7 @@
   name = Evan Lecklider
   email = evan@lecklider.com
 [core]
-  excludesfile = /Users/evan/.config/git/ignore
+  excludesfile = ~/.config/git/ignore
   quotepath = false
   autocrlf = false
   pager = less -r
