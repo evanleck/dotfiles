@@ -1,6 +1,3 @@
-# Simple command line speedtest.
-alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
-
 # Always use your bundle.
 alias be='bundle exec'
 
@@ -18,4 +15,20 @@ alias brewup='brew update && brew upgrade && brew cask upgrade'
 
 # OMG where have these been all of my life?
 alias cat=bat
-alias ls=exa
+
+if type "exa" &> /dev/null; then
+  alias ls=exa
+fi
+
+# Linux-specific.
+if type "fdfind" &> /dev/null; then
+  alias fd=fdfind
+fi
+
+if type "batcat" &> /dev/null; then
+  alias bat=batcat
+fi
+
+if type "xdg-open" &> /dev/null; then
+  alias open=xdg-open
+fi
