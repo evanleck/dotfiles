@@ -51,3 +51,7 @@ Thumbs.db
 
 # Resilio/BitTorrent Sync
 .sync
+
+# Syncthing
+.stfolder
+.stignore
