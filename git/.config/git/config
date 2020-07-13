@@ -5,11 +5,8 @@
   excludesfile = ~/.config/git/ignore
   quotepath = false
   autocrlf = false
-  pager = less -r
-  editor = mvim -f
-[pager]
-  diff = diff-so-fancy | less --tabs=1,5 -RFX
-  show = diff-so-fancy | less --tabs=1,5 -RFX
+  pager = delta --theme='Dracula'
+  editor = vim
 [alias]
   b = branch
   c = commit
@@ -38,6 +35,8 @@
   diff = auto
   interactive = auto
   status = auto
+[interactive]
+  diffFilter = delta --color-only
 [color "diff"]
   whitespace = red reverse
   plain = black
