@@ -1,0 +1,310 @@
+" My Vim configuration, inspired in part by:
+"
+" 1. https://statico.github.io/vim3.html and https://github.com/statico/dotfiles/blob/master/.vim/vimrc
+" 2. https://tomjwatson.com/blog/vim-tips/
+" 3. https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+"
+
+" Remove ALL autocommands for the current group.
+"   http://vimdoc.sourceforge.net/htmldoc/autocmd.html
+autocmd!
+
+" Per the minpac docs:
+"   `:set nocp` has many side effects. Therefore this should be done
+"   only when 'compatible' is set.
+if &compatible
+  " Because we're in the future.
+  set nocompatible
+endif
+
+" Get the colors.
+if has("termguicolors")
+  set termguicolors
+endif
+
+" Because everything is UTF-8.
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Disable line wrapping.
+set nowrap
+
+" Essential for filetype plugins.
+filetype plugin indent on
+
+" Because syntax matters.
+syntax on
+
+" Don't wait for a key after Escape in insert mode
+if has("esckeys")
+  set noesckeys
+endif
+
+" Color scheme setup.
+packadd! dracula-vim
+set background=dark
+colorscheme dracula
+
+" Central backup and undo directories.
+"   https://github.com/her/central.vim/blob/master/plugin/central.vim
+set backupdir^=~/.vim/backup//
+set directory^=~/.vim/swap//
+set undodir^=~/.vim/undo//
+
+" Turn on backup, swap, and undo.
+set backup swapfile undofile
+
+" Magic line numbers.
+set number relativenumber
+
+" Indentation.
+set autoindent breakindent
+set breakindentopt=shift:2
+
+" Omni completion.
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menu,preview
+
+" White space, tabs, and text.
+set autoread                                              " Don't bother me when a file changes
+set expandtab                                             " No tabs
+set fillchars+=vert:│                                     " Make the divider between splits a solid line.
+set fixendofline                                          " Always end with a new line.
+set foldmethod=manual                                     " Force manual folding.
+set formatoptions+=j                                      " Remove comments when joining lines.
+set formatoptions-=t                                      " Don't wrap my code lines.
+set hidden                                                " Keep buffers around.
+set hlsearch                                              " highlight matches
+set ignorecase                                            " Ignore case by default.
+set incsearch                                             " search as characters are entered
+set laststatus=2
+set lazyredraw                                            " Don't update the screen while executing macros.
+set list                                                  " Show whitespace as special chars - see listchars
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:· " Unicode characters for various things
+set mouse=nv
+set nofoldenable                                          " Start with all folds off.
+set nomodeline                                            " No need for in-buffer settings.
+set noruler                                               " Disable the ruler since we write our own statusline.
+set noshowmode                                            " Airline does this for us.
+set nospell
+set shiftround                                            " Shift to certain columns, not just n spaces
+set shiftwidth=2                                          " Number of spaces to shift for autoindent or >,<
+set showmatch                                             " highlight matching [{()}]
+set showtabline=1                                         " Only show the tabline as needed.
+set smartcase                                             " Lets you search for ALL CAPS
+set softtabstop=2                                         " Spaces 'feel' like tabs
+set spelllang=en_us
+set splitbelow                                            " Split horizontal windows below to the current windows
+set splitright                                            " Split vertical windows right to the current windows
+set synmaxcol=500                                         " Only syntax highlight to the 500th column by default.
+set tabstop=2                                             " The One True Tab
+set textwidth=80                                          " Turns out I kinda like 80...
+set ttyfast                                               " Who even knows?
+set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules     " Ignore certain files in tab-completion
+set wildmenu                                              " Show possible completions on command line
+set wildmode=list:longest,full                            " List all options and complete
+
+if (has("ballooneval"))
+  set noballooneval
+endif
+
+augroup vimrc
+  " Clear all autocmds in the group
+  autocmd!
+
+  " Jump to last cursor position unless it's invalid or in an event handler.
+  "   https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Resize panes when window/terminal gets resized.
+  autocmd VimResized * :wincmd =
+
+  " Trim trailing whitespace.
+  autocmd BufWritePre * call TrimTrailingWhitespace()
+  autocmd BufWritePre * call TrimTrailingEmptyLines()
+augroup END
+
+" Font options.
+set linespace=0
+
+" Use escape to get out of fzf.
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
+
+" Get the fucking alt key to do what I want in FZF...
+"   https://github.com/junegunn/fzf.vim/issues/78#issuecomment-175354775
+tnoremap <a-a> <esc>a
+tnoremap <a-d> <esc>d
+
+" Turn off linewise keys.
+nmap j gj
+nmap k gk
+
+" Doom Emacs kinda set the stage for this one...
+let mapleader = " "
+
+" Just let me copy and paste for shit's sake.
+inoremap <C-v> <C-r>+
+vnoremap <C-c> "+y
+
+" Save for the dummies out there.
+nnoremap <silent> <C-s> :write<CR>
+
+" Get outta here highlights.
+nnoremap <silent> <esc><esc> :nohlsearch<CR>
+
+" NERDTree explorer.
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
+
+nnoremap <Leader>s :Rg<CR>
+nnoremap <silent> <Leader><Leader> :Files<CR>
+nnoremap <silent> <Leader>t :Tags<CR>
+
+" What have I become?
+nnoremap <silent> <M-x> :Commands<CR>
+
+" Files
+nnoremap <Leader>fm :Rename<Space>
+nnoremap <silent> <Leader>fD :Delete<CR>
+nnoremap <silent> <Leader>fs :w<CR>
+
+" Quickfix
+nnoremap <silent> <Leader>cN :cnewer<CR>
+nnoremap <silent> <Leader>cP :colder<CR>
+nnoremap <silent> <Leader>ck :cclose<CR>
+nnoremap <silent> <Leader>cn :cn<CR>
+nnoremap <silent> <Leader>co :copen<CR>
+nnoremap <silent> <Leader>cp :cp<CR>
+
+" Buffers
+nnoremap <silent> <Leader>, :Buffers<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <Leader>bd :Bdelete<CR>
+nnoremap <silent> <Leader>bl :BCommits<CR>
+nnoremap <silent> <Leader>bt :BTags<CR>
+
+" Splits and windows.
+nnoremap <silent> <Leader>wq :q<CR>
+nnoremap <silent> <Leader>ws :sp<CR>
+nnoremap <silent> <Leader>wv :vs<CR>
+nnoremap <silent> <Leader>wo :only<CR>
+
+nnoremap <silent> <Leader>wl :wincmd l<CR>
+nnoremap <silent> <Leader>wh :wincmd h<CR>
+nnoremap <silent> <Leader>wj :wincmd j<CR>
+nnoremap <silent> <Leader>wk :wincmd k<CR>
+
+nnoremap <silent> <Leader>wL :wincmd L<CR>
+nnoremap <silent> <Leader>wH :wincmd H<CR>
+nnoremap <silent> <Leader>wJ :wincmd J<CR>
+nnoremap <silent> <Leader>wK :wincmd K<CR>
+
+" Get between splits quicker and easier.
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+
+" Fugitive
+nnoremap <Leader>gP :Gpush<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gf :Gfetch<CR>
+nnoremap <silent> <Leader>gg :Gstatus<CR>
+nnoremap <silent> <Leader>gl :Commits<CR>
+
+" Jump to next/previous linter warning.
+nnoremap ]l :ALENextWrap<CR>
+nnoremap [l :ALEPreviousWrap<CR>
+
+" Sort visually selected lines.
+vnoremap <Leader>s :sort<CR>
+
+" Copy to system clipboard.
+vnoremap <Leader>y "+y<CR>
+
+" Literal search for the visually highlighted text.
+"   https://vim.fandom.com/wiki/Search_for_visually_selected_text
+vnoremap / y/\V<C-r>=escape(@",'/\')<cr><cr>
+
+" Indent if we're at the beginning of a line. Else, do completion.
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga) and for a motion/text
+" object (e.g. gaip).
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Thank you, https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+
+" Command to generate tags file
+let g:fzf_tags_command = 'ctags'
+
+" Disable the preview window.
+let g:fzf_preview_window = ''
+
+" Open FZF in a popup window.
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
+
+" NERDTree
+let NERDTreeWinPos = 'right'
+let NERDTreeWinSize = 60
+
+" ALE
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '▲'
+
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ 'active': {
+      \   'left': [
+      \       ['mode', 'paste'],
+      \       ['gitbranch', 'readonly', 'filename', 'modified']
+      \   ],
+      \   'right': [
+      \       ['linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
+      \       ['lineinfo'],
+      \       ['fileformat', 'fileencoding', 'filetype']
+      \   ]
+      \ },
+      \ 'component_expand': {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_infos': 'lightline#ale#infos',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
