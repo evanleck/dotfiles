@@ -16,6 +16,11 @@ alias brewup='brew update && brew upgrade && brew cask upgrade'
 # OMG where have these been all of my life?
 alias cat=bat
 
+# Einstein forgive me...
+if type "emacsclient" &> /dev/null; then
+  alias emc='emacsclient -c -n'
+fi
+
 if type "exa" &> /dev/null; then
   alias ls=exa
 fi
