@@ -2,7 +2,11 @@
 (setq user-full-name "Evan Lecklider"
       user-mail-address "evan@lecklider.com")
 
-(setq doom-font (font-spec :family "Fira Mono" :size 22))
+(when IS-LINUX
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 22)))
+
+(when IS-MAC
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 12)))
 
 ;; Slightly more sane scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))

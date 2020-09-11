@@ -77,17 +77,17 @@ tabspaces: 2
 font:
   # Normal (roman) font face
   normal:
-    family: JetBrains Mono
+    family: IBM Plex Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: JetBrains Mono
+    family: IBM Plex Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: JetBrains Mono
+    family: IBM Plex Mono
     style: Italic
 
   # Point size

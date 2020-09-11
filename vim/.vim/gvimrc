@@ -8,7 +8,7 @@ if exists("&macmeta")
 endif
 
 " Gimme that sweet, sweet font.
-set guifont=Fira\ Mono\ 9
+set guifont=IBM\ Plex\ Mono\ 9
 
 set guioptions-=e " Gimme those Vim-native tabs, damnit!
 set guioptions-=T " GTFO with that toolbar.
