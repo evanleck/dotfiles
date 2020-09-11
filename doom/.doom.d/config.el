@@ -36,18 +36,14 @@
 ;; Always start with a maximized frame (window in the OS).
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 
+;; Add _ as a word character.
 (add-hook! ruby-mode
-  ;; Add _ as a word character.
-  (modify-syntax-entry ?_ "w")
-  ;; Use etags for ruby-mode.
-  (set-company-backend! 'ruby-mode 'company-etags))
+  (modify-syntax-entry ?_ "w"))
 
 (add-hook! web-mode
-  ;; Add _ as a word character.
   (modify-syntax-entry ?_ "w"))
 
 (add-hook! js2-mode
-  ;; Add _ as a word character.
   (modify-syntax-entry ?_ "w"))
 
 ;; Tell Projectile to look in ~/Code and ~/Clones for projects.
