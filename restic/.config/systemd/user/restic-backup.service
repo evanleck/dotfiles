@@ -1,0 +1,11 @@
+[Unit]
+Description=Restic backup service
+
+[Service]
+Type=oneshot
+ExecStartPre=restic unlock --verbose
+ExecStart=restic backup --verbose --exclude-file %h/.config/restic/exclude %h/Code %h/.dotfiles %h/Documents %h/.config
+EnvironmentFile=%h/.config/restic/env.conf
+Restart=on-failure
+RestartSec=60
+Conflicts=restic-prune.service

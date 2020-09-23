@@ -1,0 +1,16 @@
+.DS_Store
+.cache
+.config/Slack
+.sass-cache
+.var
+.vim/pack
+Cache
+__sapper__
+build
+cache
+clones
+dump.rdb
+node_modules
+public/assets
+tmp
+vim-svelte/vader.vim
