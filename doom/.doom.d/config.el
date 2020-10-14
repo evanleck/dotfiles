@@ -3,10 +3,10 @@
       user-mail-address "evan@lecklider.com")
 
 (when IS-LINUX
-  (setq doom-font (font-spec :family "IBM Plex Mono" :size 22)))
+  (setq doom-font (font-spec :family "JetBrains Mono" :size 22)))
 
 (when IS-MAC
-  (setq doom-font (font-spec :family "IBM Plex Mono" :size 12)))
+  (setq doom-font (font-spec :family "JetBrains Mono" :size 12)))
 
 ;; Slightly more sane scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
