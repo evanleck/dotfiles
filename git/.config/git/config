@@ -5,7 +5,7 @@
   excludesfile = ~/.config/git/ignore
   quotepath = false
   autocrlf = false
-  pager = delta --theme='Dracula'
+  pager = delta
   editor = vim
 [alias]
   b = branch
@@ -37,6 +37,8 @@
   status = auto
 [interactive]
   diffFilter = delta --color-only
+[delta]
+  theme = Dracula
 [color "diff"]
   whitespace = red reverse
   plain = black
