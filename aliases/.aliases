@@ -11,7 +11,7 @@ alias gg='lazygit'
 alias c='clear'
 
 # Always updating.
-alias brewup='brew update && brew upgrade && brew cask upgrade'
+alias brewup='brew update && brew upgrade && brew upgrade --cask'
 
 # OMG where have these been all of my life?
 alias cat=bat
