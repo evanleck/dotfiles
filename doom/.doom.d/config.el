@@ -46,6 +46,7 @@
 (add-hook! js2-mode
   (modify-syntax-entry ?_ "w"))
 
-;; Tell Projectile to look in ~/Code and ~/Clones for projects.
-(setq projectile-auto-discover t)
-(setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/prepaid/wt" "~/Code/clones"))
+;; Tell Projectile where to look for projects.
+(after! projectile
+  (setq projectile-auto-discover t)
+  (setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/prepaid/wt" "~/Code/clones")))
