@@ -65,17 +65,17 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: JetBrains Mono
+    family: Fira Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: JetBrains Mono
+    family: Fira Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: JetBrains Mono
+    family: Fira Mono
     style: Italic
 
   # Point size
