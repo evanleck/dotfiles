@@ -1,4 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+;;
+;; Pretty slick literate config that I lifted some goodies from.
+;;   https://tecosaur.github.io/emacs-config/config.html
+;;
 (setq user-full-name "Evan Lecklider"
       user-mail-address "evan@lecklider.com")
 
