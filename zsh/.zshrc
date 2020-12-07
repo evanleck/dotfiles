@@ -28,6 +28,14 @@ precmd() {
   setup_git_prompt
 }
 
+# Conditionally source a script.
+source_if_present() {
+  if [[ -f $1 ]]
+  then
+    source $1
+  fi
+}
+
 # Brew completions for ZSH.
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -64,25 +72,25 @@ setopt noflowcontrol
 setopt promptsubst
 
 # ASDF
-[[ -f "${HOME}/.asdf/asdf.sh" ]] && source "${HOME}/.asdf/asdf.sh"
-[[ -f "/usr/local/opt/asdf/asdf.sh" ]] && source "/usr/local/opt/asdf/asdf.sh"
+source_if_present "${HOME}/.asdf/asdf.sh"
+source_if_present "/usr/local/opt/asdf/asdf.sh"
 
 # FZF
-[[ -f "${HOME}/.fzf.zsh" ]] && source "${HOME}/.fzf.zsh"
-[[ -f "/usr/share/fzf/shell/key-bindings.zsh" ]] && source "/usr/share/fzf/shell/key-bindings.zsh"
+source_if_present "${HOME}/.fzf.zsh"
+source_if_present "/usr/share/fzf/shell/key-bindings.zsh"
 
 # FZF on Debian
-[[ -f "/usr/share/doc/fzf/examples/key-bindings.zsh" ]] && source "/usr/share/doc/fzf/examples/key-bindings.zsh"
-[[ -f "/usr/share/doc/fzf/examples/completion.zsh" ]] && source "/usr/share/doc/fzf/examples/completion.zsh"
+source_if_present "/usr/share/doc/fzf/examples/key-bindings.zsh"
+source_if_present "/usr/share/doc/fzf/examples/completion.zsh"
 
 # Autojump
-[[ -f "/usr/local/etc/profile.d/autojump.sh" ]] && source "/usr/local/etc/profile.d/autojump.sh"
-[[ -f "/usr/share/autojump/autojump.zsh" ]] && source "/usr/share/autojump/autojump.zsh"
+source_if_present "/usr/local/etc/profile.d/autojump.sh"
+source_if_present "/usr/share/autojump/autojump.zsh"
 
 # ZSH autosuggestions
-[[ -f "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-[[ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source_if_present "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source_if_present "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # ZSH syntax highlighting
-[[ -f "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-[[ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source_if_present "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source_if_present "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
