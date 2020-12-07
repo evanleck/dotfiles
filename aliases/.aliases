@@ -4,23 +4,31 @@ alias be='bundle exec'
 # We just do this all the time.
 alias g='git'
 
-# Because lazy.
-alias gg='lazygit'
-
 # Always clearing.
 alias c='clear'
 
 # Always updating.
 alias brewup='brew update && brew upgrade && brew upgrade --cask'
 
-# OMG where have these been all of my life?
-alias cat=bat
+# Because why keep typing sudo over and over?
+if type "apt" &> /dev/null; then
+  alias apt='sudo apt'
+fi
 
+if type "dnf" &> /dev/null; then
+  alias dnf='sudo dnf'
+fi
+
+# Just seems easier to me.
+if type "xdg-open" &> /dev/null; then
+  alias open=xdg-open
+fi
+
+# Better. Faster. Stronger.
 if type "exa" &> /dev/null; then
   alias ls=exa
 fi
 
-# Linux-specific.
 if type "fdfind" &> /dev/null; then
   alias fd=fdfind
 fi
@@ -29,6 +37,6 @@ if type "batcat" &> /dev/null; then
   alias bat=batcat
 fi
 
-if type "xdg-open" &> /dev/null; then
-  alias open=xdg-open
+if type "bat" &> /dev/null; then
+  alias cat=bat
 fi
