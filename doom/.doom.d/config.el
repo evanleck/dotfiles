@@ -51,6 +51,5 @@
   (modify-syntax-entry ?_ "w"))
 
 ;; Tell Projectile where to look for projects.
-(after! projectile
-  (setq projectile-auto-discover t)
-  (setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/prepaid/wt" "~/Code/clones")))
+(setq projectile-auto-discover t)
+(setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/prepaid/wt" "~/Code/clones"))
