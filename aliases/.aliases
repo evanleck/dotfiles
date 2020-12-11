@@ -19,6 +19,10 @@ if type "dnf" &> /dev/null; then
   alias dnf='sudo dnf'
 fi
 
+if type "flatpak" &> /dev/null; then
+  alias flatpak='sudo flatpak'
+fi
+
 # Just seems easier to me.
 if type "xdg-open" &> /dev/null; then
   alias open=xdg-open
