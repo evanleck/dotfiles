@@ -76,3 +76,5 @@
   newHighlight = green bold 22
 [init]
   defaultBranch = main
+[pull]
+  ff = only
