@@ -1,6 +1,7 @@
+vim/.vim/backup
 vim/.vim/pack
-vim/.vim/backup/*
-vim/.vim/undo/*
+vim/.vim/swap
+vim/.vim/undo
 
 ssh/.ssh
 !ssh/.ssh/config
