@@ -6,7 +6,7 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
-.DEFAULT_GOAL := pack
+.DEFAULT_GOAL := setup
 
 PACKDIR := pack/plugins
 OPTDIR := $(PACKDIR)/opt
