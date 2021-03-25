@@ -25,7 +25,6 @@ git@github.com:jiangmiao/auto-pairs.git \
 git@github.com:junegunn/fzf.git \
 git@github.com:junegunn/fzf.vim.git \
 git@github.com:junegunn/vim-easy-align.git \
-git@github.com:ludovicchabant/vim-gutentags.git \
 git@github.com:maximbaz/lightline-ale.git \
 git@github.com:moll/vim-bbye.git \
 git@github.com:othree/html5.vim.git \
