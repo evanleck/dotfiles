@@ -55,7 +55,7 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "arc-darker-solid";
+	theme: "mint-y-dark-aqua";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
