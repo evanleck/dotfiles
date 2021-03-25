@@ -7,7 +7,8 @@
       user-mail-address "evan@lecklider.com")
 
 (when IS-LINUX
-  (setq doom-font (font-spec :family "Fira Mono" :size 22)))
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 24))
+  (setq doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 24)))
 
 (when IS-MAC
   (setq doom-font (font-spec :family "Fira Mono" :size 12)))

@@ -3,7 +3,7 @@ configuration {
 	width: 30;
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "Fira Sans Regular 22";
+	font: "IBM Plex Mono Text 20";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 25;*/
