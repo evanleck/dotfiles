@@ -53,4 +53,4 @@
 
 ;; Tell Projectile where to look for projects.
 (setq projectile-auto-discover t)
-(setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/prepaid/wt" "~/Code/clones"))
+(setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/clones"))
