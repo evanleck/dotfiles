@@ -54,3 +54,6 @@
 ;; Tell Projectile where to look for projects.
 (setq projectile-auto-discover t)
 (setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/clones"))
+
+;; Org it up.
+(setq org-directory "~/Documents")
