@@ -7,3 +7,5 @@ ssh/.ssh
 !ssh/.ssh/config
 
 restic/.config/restic/env.conf
+restic/.config/systemd/user/default.target.wants
+restic/.config/systemd/user/timers.target.wants
