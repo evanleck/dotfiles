@@ -42,7 +42,7 @@ if type brew &>/dev/null; then
 fi
 
 autoload -U colors && colors
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE='10000'
