@@ -7,11 +7,11 @@
       user-mail-address "evan@lecklider.com")
 
 (when IS-LINUX
-  (setq doom-font (font-spec :family "IBM Plex Mono" :size 24))
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 22))
   (setq doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 24)))
 
 (when IS-MAC
-  (setq doom-font (font-spec :family "Fira Mono" :size 12)))
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 11)))
 
 ;; Slightly more sane scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
@@ -36,6 +36,7 @@
 
       ;; Because I'm a dumb ape.
       :n "C-s" #'save-buffer
+      :i "C-s" #'save-buffer
       :i "C-v" #'yank)
 
 ;; Always start with a maximized frame (window in the OS).
