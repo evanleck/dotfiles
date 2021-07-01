@@ -1,33 +1,3 @@
-# This git prompt is taken from https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
-setup_git_prompt() {
-  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    unset git_prompt
-    return 0
-  fi
-
-  local git_status_dirty git_branch
-
-  if [ "$(git --no-optional-locks status --untracked-files='no' --porcelain)" ]; then
-    git_status_dirty=" %{$fg[green]%}✗%{$fg[default]%}"
-  else
-    unset git_status_dirty
-  fi
-
-  git_branch="$(git symbolic-ref HEAD 2>/dev/null)"
-  git_branch="${git_branch#refs/heads/}"
-
-  if [ "${#git_branch}" -ge 24 ]; then
-    git_branch="${git_branch:0:21}..."
-  fi
-
-  git_branch="${git_branch:-no branch}"
-  git_prompt=" %{$fg[blue]%}git:(%{$fg[red]%}${git_branch}%{$fg[blue]%})${git_status_dirty}"
-}
-
-precmd() {
-  setup_git_prompt
-}
-
 # Conditionally source a script.
 source_if_present() {
   if [[ -f $1 ]]
@@ -94,3 +64,7 @@ source_if_present "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # ZSH syntax highlighting
 source_if_present "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source_if_present "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Starship
+#   https://starship.rs
+eval "$(starship init zsh)"
