@@ -9,3 +9,6 @@ EnvironmentFile=%h/.config/restic/env.conf
 Restart=on-failure
 RestartSec=60
 Conflicts=restic-backup.service
+
+[Install]
+WantedBy=multi-user.target
