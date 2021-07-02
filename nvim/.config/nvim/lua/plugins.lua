@@ -165,6 +165,15 @@ require('packer').startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
 
+    -- Git
+    use {
+      'TimUntersberger/neogit',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('neogit').setup {}
+      end
+    }
+
     -- The one true color scheme
     use { 'dracula/vim', as = 'dracula' }
 
