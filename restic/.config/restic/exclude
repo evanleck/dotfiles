@@ -1,11 +1,13 @@
 .DS_Store
 .cache
 .config/Slack
+.elixir_ls
 .sass-cache
 .var
 .vim/pack
 Cache
 __sapper__
+_build
 build
 cache
 clones
