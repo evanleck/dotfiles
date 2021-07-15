@@ -52,6 +52,9 @@
 (add-hook! js2-mode
   (modify-syntax-entry ?_ "w"))
 
+(add-hook! elixir-mode
+  (add-to-list 'exec-path "~/Code/elixir-ls"))
+
 ;; Tell Projectile where to look for projects.
 (setq projectile-auto-discover t)
 (setq projectile-project-search-path '("~/Code" "~/Code/prepaid" "~/Code/clones"))
