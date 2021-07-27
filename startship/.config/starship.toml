@@ -1,1 +1,69 @@
-# Default, I guess?
+# This is largely inspired by the "Plain Text Symbols" preset.
+#   https://starship.rs/presets/#plain-text-symbols
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vicmd_symbol = "[<](bold green)"
+
+[git_commit]
+tag_symbol = " tag "
+
+[git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[cmake]
+format = '$symbol\([($version)]($style)\) '
+symbol = "cmake"
+
+[deno]
+format = '$symbol\([($version)]($style)\) '
+symbol = "deno"
+
+[directory]
+read_only = " ro"
+
+[elixir]
+format = '$symbol\([($version \(OTP $otp_version\))]($style)\) '
+symbol = "exs"
+
+[git_branch]
+symbol = ""
+
+[golang]
+format = '$symbol\([($version)]($style)\) '
+symbol = "go"
+
+[java]
+format = '$symbol\([($version)]($style)\) '
+symbol = "java"
+
+[nodejs]
+format = '$symbol\([($version)]($style)\) '
+symbol = "nodejs"
+
+[memory_usage]
+symbol = "memory "
+
+[package]
+format = '$symbol\([($version)]($style)\) '
+symbol = "pkg"
+
+[python]
+format = '$symbol\([($version)]($style)\) '
+symbol = "py"
+
+[ruby]
+format = '$symbol\([($version)]($style)\) '
+symbol = "rb"
+
+[rust]
+format = '$symbol\([($version)]($style)\) '
+symbol = "rs"
+
+[swift]
+format = '$symbol\([($version)]($style)\) '
+symbol = "swift"
