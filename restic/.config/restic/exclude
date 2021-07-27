@@ -2,6 +2,7 @@
 .cache
 .config/Slack
 .elixir_ls
+.log
 .sass-cache
 .var
 .vim/pack
