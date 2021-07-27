@@ -36,6 +36,9 @@ map('n', '<Leader>/', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<Leader><Leader>', "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
 map('n', '<Leader>sb', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>")
 
+-- Git
+map('n', '<Leader>gg', ':Neogit<CR>')
+
 -- Files
 map('n', '<Leader>fm', ':Rename<Space>')
 map('n', '<Leader>fD', ':Delete<CR>', { silent = true })
