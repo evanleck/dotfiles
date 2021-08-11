@@ -185,7 +185,14 @@ require('packer').startup({
         opt = true
       },
       config = function()
-        require('lualine').setup({ options = { theme = 'dracula' } })
+        require('lualine').setup({
+          options = {
+            component_separators = '',
+            icons_enabled = false,
+            section_separators = '',
+            theme = 'dracula'
+          }
+        })
       end
     }
   end,
