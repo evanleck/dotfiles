@@ -7,6 +7,7 @@
 .var
 .vim/pack
 Cache
+CachedData
 __sapper__
 _build
 build
