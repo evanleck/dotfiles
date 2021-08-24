@@ -17,7 +17,6 @@ autoload -Uz compinit && compinit -i
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE='10000'
 SAVEHIST='10000'
-PROMPT='%B%{$fg[cyan]%}%1~${git_prompt} %b%{$fg[default]%}%k'
 
 # Tweak syntax highlighting colors.
 #   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md
