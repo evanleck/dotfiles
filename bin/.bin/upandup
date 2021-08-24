@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Bootstrap asdf
+#   https://asdf-vm.com/#/core-manage-asdf?id=install
+if [ ! -d "${HOME}/.asdf" ]; then
+  git clone https://github.com/asdf-vm/asdf.git "${HOME}/.asdf" --branch v0.8.1
+fi
+
+# Bootstrap doom
+#   https://github.com/hlissner/doom-emacs#install
+if [ ! -d "${HOME}/.emacs.d" ]; then
+  git clone --depth 1 https://github.com/hlissner/doom-emacs "${HOME}/.emacs.d"
+  ~/.emacs.d/bin/doom install
+fi
+
+# Update Homebrew if it's there.
+if type brew &>/dev/null; then
+  brew update
+  brew upgrade
+  brew upgrade --cask
+fi
+
+# asdf updates
+asdf update
+asdf plugin update --all
+asdf install
+
+# binaries from cargo
+cargo install bat ripgrep fd-find exa watchexec-cli tokei git-delta du-dust
+
+# in case anything got updated
+asdf reshim
+
+# doom
+doom upgrade
