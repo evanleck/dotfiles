@@ -159,8 +159,8 @@ require('packer').startup({
     }
 
     -- Editor
+    use 'b3nj5m1n/kommentary'
     use 'moll/vim-bbye'
-    use 'tpope/vim-commentary'
     use 'tpope/vim-eunuch'
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
