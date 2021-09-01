@@ -168,9 +168,16 @@ require('packer').startup({
     -- Git
     use {
       'TimUntersberger/neogit',
-      requires = 'nvim-lua/plenary.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'sindrets/diffview.nvim'
+      },
       config = function()
-        require('neogit').setup {}
+        require('neogit').setup {
+          integrations = {
+            diffview = true
+          }
+        }
       end
     }
 
