@@ -111,6 +111,18 @@ require('packer').startup({
       end
     }
 
+    -- Treesitter context
+    use {
+      'romgrk/nvim-treesitter-context',
+      requires = { { 'nvim-treesitter/nvim-treesitter' } },
+      config = function()
+        require('treesitter-context').setup {
+          enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+          throttle = true, -- Throttles plugin updates (may improve performance)
+        }
+      end
+    }
+
     -- Telescope
     -- TODO Add this native plugin? https://github.com/nvim-telescope/telescope-fzf-native.nvim
     use {
