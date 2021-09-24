@@ -18,7 +18,10 @@ require('packer').startup({
     -- LSP
     use {
       'neovim/nvim-lspconfig',
-      requires = { 'kabouzeid/nvim-lspinstall' },
+      requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'kabouzeid/nvim-lspinstall'
+      },
       config = function()
         require('lspinstall').setup()
 
@@ -58,40 +61,44 @@ require('packer').startup({
 
         local servers = require('lspinstall').installed_servers()
 
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
         for _, server in pairs(servers) do
-          require('lspconfig')[server].setup { on_attach = on_attach }
+          require('lspconfig')[server].setup { capabilities = capabilities, on_attach = on_attach }
         end
       end
     }
 
     -- Auto complete
     use {
-      'hrsh7th/nvim-compe',
+      'hrsh7th/nvim-cmp',
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/vim-vsnip'
+      },
       config = function()
-        require('compe').setup {
-          enabled = true;
-          autocomplete = true;
-          debug = false;
-          min_length = 1;
-          preselect = 'enable';
-          throttle_time = 80;
-          source_timeout = 200;
-          incomplete_delay = 400;
-          max_abbr_width = 100;
-          max_kind_width = 100;
-          max_menu_width = 100;
-          documentation = true;
+        local cmp = require('cmp')
 
-          source = {
-            path = true;
-            buffer = true;
-            calc = true;
-            nvim_lsp = true;
-            nvim_lua = true;
-            vsnip = false;
-            ultisnips = false;
-          };
-        }
+        cmp.setup({
+          snippet = {
+            expand = function(args)
+              vim.fn["vsnip#anonymous"](args.body)
+            end,
+          },
+          mapping = {
+            ['<Tab>'] = cmp.mapping.select_next_item(),
+            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+            ['<CR>'] = cmp.mapping.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            })
+          },
+          sources = {
+            { name = 'nvim_lsp' }
+          }
+        })
       end
     }
 
