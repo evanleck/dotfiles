@@ -6,7 +6,7 @@
   quotepath = false
   autocrlf = false
   pager = delta
-  editor = vim
+  editor = nvim
 [alias]
   b = branch
   c = commit
