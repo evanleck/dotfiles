@@ -12,12 +12,6 @@ asdf update
 asdf plugin update --all
 asdf install
 
-# binaries from cargo
-cargo install bat ripgrep fd-find exa watchexec-cli tokei git-delta du-dust
-
-# in case anything got updated
-asdf reshim
-
 # neovim
 if type nvim &>/dev/null; then
   echo 'Updating neovim packages'
