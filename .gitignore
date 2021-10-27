@@ -3,6 +3,12 @@ vim/.vim/pack
 vim/.vim/swap
 vim/.vim/undo
 
+# Directories added by fisher.
+fish/.config/fish/completions
+fish/.config/fish/conf.d
+fish/.config/fish/fish_variables
+fish/.config/fish/functions
+
 ssh/.ssh
 !ssh/.ssh/config
 
