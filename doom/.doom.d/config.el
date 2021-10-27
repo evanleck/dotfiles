@@ -11,7 +11,10 @@
         doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 24)))
 
 (when IS-MAC
-  (setq doom-font (font-spec :family "IBM Plex Mono" :size 11)))
+  (setq doom-font (font-spec :family "IBM Plex Mono" :size 12)))
+
+;; Don't jump quite so much each time.
+(setq doom-font-increment 1)
 
 ;; Slightly more sane scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
