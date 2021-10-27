@@ -35,12 +35,8 @@ export PATH
 source "${HOME}/.aliases"
 source "${HOME}/.env"
 
-[[ -f "${HOME}/.private.env" ]] && source "${HOME}/.private.env"
+[ -f "${HOME}/.private.env" ] && source "${HOME}/.private.env"
 [ -f "${HOME}/.fzf.bash" ] && source "${HOME}/.fzf.bash"
 
 # FZF for Linux.
 [ -f "/usr/share/fzf/shell/key-bindings.bash" ] && source "/usr/share/fzf/shell/key-bindings.bash"
-
-# ASDF
-source "${HOME}/.asdf/asdf.sh"
-source "${HOME}/.asdf/completions/asdf.bash"
