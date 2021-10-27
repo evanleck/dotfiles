@@ -45,9 +45,6 @@
   ;; Open them Earls
   :n "g x" #'browse-url-at-point)
 
-;; Always start with a maximized frame (window in the OS).
-(add-hook 'window-setup-hook #'toggle-frame-maximized)
-
 ;; Add _ as a word character.
 (add-hook! ruby-mode
   (modify-syntax-entry ?_ "w"))
