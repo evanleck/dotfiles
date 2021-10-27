@@ -1,8 +1,8 @@
 # Conditionally source a script.
 source_if_present() {
-  if [[ -f $1 ]]
+  if [[ -f "$1" ]]
   then
-    source $1
+    source "$1"
   fi
 }
 
