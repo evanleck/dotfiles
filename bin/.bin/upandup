@@ -7,10 +7,10 @@ if type brew &>/dev/null; then
   brew upgrade --cask
 fi
 
-# asdf updates
-asdf update
-asdf plugin update --all
-asdf install
+# Update asdf's plugins.
+if type asdf &>/dev/null; then
+  asdf plugin update --all
+fi
 
 # neovim
 if type nvim &>/dev/null; then
