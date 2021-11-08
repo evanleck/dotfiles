@@ -28,9 +28,9 @@ set -g fish_color_param fish_color_normal
 
 # Modify hydro's colors.
 #   https://github.com/jorgebucaran/hydro#colors
-set -g hydro_color_pwd bd93f9 --bold # purple
-set -g hydro_color_git ff79c6 --bold # pink
-set -g hydro_color_prompt 50fa7b --bold # green
+set -g hydro_color_pwd bd93f9  # purple
+set -g hydro_color_git 6272a4  # comment
+set -g hydro_color_prompt f1fa8c  # yellow
 
 # Quiet down the greeting.
 set fish_greeting ''
