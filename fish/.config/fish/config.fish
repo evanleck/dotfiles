@@ -17,6 +17,7 @@ alias c clear
 alias cat bat
 alias g git
 alias ls exa
+alias gg lazygit
 
 # Modify Dracula's colors slightly.
 #   See conf.d/dracula.fish for the color definitions.
