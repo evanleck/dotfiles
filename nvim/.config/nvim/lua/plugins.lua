@@ -20,11 +20,9 @@ require('packer').startup({
       'neovim/nvim-lspconfig',
       requires = {
         'hrsh7th/cmp-nvim-lsp',
-        'kabouzeid/nvim-lspinstall'
+        'williamboman/nvim-lsp-installer'
       },
       config = function()
-        require('lspinstall').setup()
-
         -- Taken directly from
         -- https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
         -- Use an on_attach function to only map the following keys
@@ -59,14 +57,18 @@ require('packer').startup({
           buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
         end
 
-        local servers = require('lspinstall').installed_servers()
-
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+        local opts = { capabilities = capabilities, on_attach = on_attach }
+        local lsp_installer = require('nvim-lsp-installer')
 
-        for _, server in pairs(servers) do
-          require('lspconfig')[server].setup { capabilities = capabilities, on_attach = on_attach }
-        end
+        -- Register a handler that will be called for all installed servers.
+        -- Alternatively, you may also register handlers on specific server instances instead (see example below).
+        lsp_installer.on_server_ready(function(server)
+          -- This setup() function is exactly the same as lspconfig's setup function.
+          -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+          server:setup(opts)
+        end)
       end
     }
 
