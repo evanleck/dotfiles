@@ -133,18 +133,31 @@ require('packer').startup({
     }
 
     -- Telescope
-    -- TODO Add this native plugin? https://github.com/nvim-telescope/telescope-fzf-native.nvim
     use {
       'nvim-telescope/telescope.nvim',
       requires = {
         { 'nvim-lua/popup.nvim' },
-        { 'nvim-lua/plenary.nvim' }
+        { 'nvim-lua/plenary.nvim' },
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
       },
       config = function()
         local actions = require('telescope.actions')
 
         require('telescope').setup {
           defaults = {
+            file_ignore_patterns = { 'node_modules', '.git' },
+            layout_config = {
+              center = {
+                prompt_position = "bottom"
+              }
+            },
+            layout_strategy = 'center',
+            mappings = {
+              i = {
+                ['<esc>'] = actions.close
+              },
+            },
+            preview = false, -- no previews
             vimgrep_arguments = {
               'rg',
               '--color=never',
@@ -155,16 +168,23 @@ require('packer').startup({
               '--smart-case',
               '--hidden'
             },
-
-            file_ignore_patterns = { 'node_modules', '.git' },
-
-            mappings = {
-              i = {
-                ["<esc>"] = actions.close
-              },
+          },
+          extensions = {
+            fzf = {
+              fuzzy = true,                    -- false will only do exact matching
+              override_generic_sorter = true,  -- override the generic sorter
+              override_file_sorter = true,     -- override the file sorter
+              case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+            }
+          },
+          pickers = {
+            find_files = {
+              find_command = { 'fd', '--type', 'file', '--hidden', '--exclude', '.git', '--strip-cwd-prefix' }
             },
           }
         }
+
+        require('telescope').load_extension('fzf')
       end
     }
 
@@ -209,10 +229,6 @@ require('packer').startup({
     -- Status line
     use {
       'hoob3rt/lualine.nvim',
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-        opt = true
-      },
       config = function()
         require('lualine').setup({
           options = {
