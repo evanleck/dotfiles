@@ -58,6 +58,9 @@
 (add-hook! elixir-mode
   (add-to-list 'exec-path "~/Code/elixir-ls"))
 
+;; Remove non-projects on exit.
+(setq doom-projectile-cache-purge-non-projects t)
+
 ;; Tell Projectile where to look for projects.
 (projectile-add-known-project "~/.dotfiles")
 
