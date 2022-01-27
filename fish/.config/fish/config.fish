@@ -12,11 +12,12 @@ set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -x EDITOR nvim
 
 # Aliases.
-alias be 'bundle exec'
+alias be "bundle exec"
 alias c clear
 alias cat bat
 alias g git
 alias ls exa
+alias lsa "exa --header --long --git --all"
 alias gg lazygit
 
 # Modify Dracula's colors slightly.
