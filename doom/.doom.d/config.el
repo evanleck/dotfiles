@@ -22,6 +22,9 @@
 ;; Dracula all the things.
 (setq doom-theme 'doom-dracula)
 
+;; Don't gimme that variable pitch nonsense.
+(setq doom-themes-treemacs-enable-variable-pitch nil)
+
 ;; Stop bothering me about this shit.
 (setq tags-revert-without-query t
       tags-add-tables nil)
