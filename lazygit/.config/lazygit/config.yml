@@ -1,3 +1,8 @@
+gui:
+  showCommandLog: false
+  showFileTree: false
+  showRandomTip: false
+
 git:
   paging:
     colorArg: always
