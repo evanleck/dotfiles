@@ -11,8 +11,9 @@ fish_add_path ~/.emacs.d/bin
 fish_add_path ~/.bin
 
 # Environment variables.
-set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -x EDITOR nvim
+set -x LG_CONFIG_FILE ~/.config/lazygit/config.yml
+set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 
 # Aliases.
 alias be "bundle exec"
