@@ -1,6 +1,9 @@
 # Pull in asdf.
 source /usr/local/opt/asdf/libexec/asdf.fish
 
+# Add Homebrew's sbin directory.
+fish_add_path /usr/local/sbin
+
 # Add Doom to our PATH.
 fish_add_path ~/.emacs.d/bin
 
