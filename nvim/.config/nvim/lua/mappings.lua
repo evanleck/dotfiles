@@ -4,9 +4,9 @@ local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	local options = { noremap = true }
+	if opts then options = vim.tbl_extend('force', options, opts) end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Turn off linewise keys.
@@ -29,15 +29,12 @@ map('n', '<C-s>', ':write<cr>', { silent = true })
 -- Get outta here highlights.
 map('n', '<esc><esc>', ':nohlsearch<cr>', { silent = true })
 
--- NERDTree explorer.
--- nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
+-- File explorer.
+map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 
 map('n', '<Leader>/', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<Leader><Leader>', "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
 map('n', '<Leader>sb', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>")
-
--- Git
-map('n', '<Leader>gg', ':Neogit<CR>')
 
 -- Files
 map('n', '<Leader>fm', ':Rename<Space>')
@@ -85,42 +82,42 @@ map('n', '<C-l>', ':wincmd l<CR>', { silent = true })
 -- From https://github.com/hrsh7th/nvim-compe
 --
 local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-    return true
-  else
-    return false
-  end
+	local col = vim.fn.col('.') - 1
+	if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+		return true
+	else
+		return false
+	end
 end
 
 -- Use (s-)tab to:
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t '<C-n>'
-  -- elseif vim.fn.call('vsnip#available', {1}) == 1 then
-  --   return t '<Plug>(vsnip-expand-or-jump)'
-  elseif check_back_space() then
-    return t '<Tab>'
-  else
-    return vim.fn['compe#complete']()
-  end
+	if vim.fn.pumvisible() == 1 then
+		return t '<C-n>'
+		-- elseif vim.fn.call('vsnip#available', {1}) == 1 then
+		--   return t '<Plug>(vsnip-expand-or-jump)'
+	elseif check_back_space() then
+		return t '<Tab>'
+	else
+		return vim.fn['compe#complete']()
+	end
 end
 
 _G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t '<C-p>'
-  -- elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
-  --   return t '<Plug>(vsnip-jump-prev)'
-  else
-    -- If <S-Tab> is not working in your terminal, change it to <C-h>
-    return t '<S-Tab>'
-  end
+	if vim.fn.pumvisible() == 1 then
+		return t '<C-p>'
+		-- elseif vim.fn.call('vsnip#jumpable', {-1}) == 1 then
+		--   return t '<Plug>(vsnip-jump-prev)'
+	else
+		-- If <S-Tab> is not working in your terminal, change it to <C-h>
+		return t '<S-Tab>'
+	end
 end
 
 map('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
