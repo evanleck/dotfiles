@@ -49,7 +49,7 @@ cmd('syntax on')
 
 -- Line numbers
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 
 -- Indentation
 opt.autoindent = true
@@ -72,7 +72,7 @@ opt.incsearch = true                   -- search as characters are entered
 opt.laststatus = 2
 opt.lazyredraw = true                  -- Don't update the screen while executing macros.
 opt.list = true
-opt.listchars = { tab = '» ', extends = '›', precedes = '‹', nbsp = '·', trail = '·' } -- Unicode characters for various things
+opt.listchars = { tab = '› ', extends = '»', precedes = '«', nbsp = '·', trail = '·' } -- Unicode characters for various things
 opt.modeline = false                   -- No need for in-buffer settings.
 opt.mouse = 'nv'
 opt.ruler = false                      -- Disable the ruler since we write our own statusline.
