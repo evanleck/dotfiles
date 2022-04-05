@@ -19,15 +19,15 @@ local swap = fn.stdpath('cache') .. '/swap'
 local undo = fn.stdpath('cache') .. '/undo'
 
 if fn.empty(fn.glob(backup)) > 0 then
-  fn.system({ 'mkdir', '-p', backup })
+	fn.system({ 'mkdir', '-p', backup })
 end
 
 if fn.empty(fn.glob(swap)) > 0 then
-  fn.system({ 'mkdir', '-p', swap })
+	fn.system({ 'mkdir', '-p', swap })
 end
 
 if fn.empty(fn.glob(undo)) > 0 then
-  fn.system({ 'mkdir', '-p', undo })
+	fn.system({ 'mkdir', '-p', undo })
 end
 
 opt.backupdir = backup .. '//'
@@ -59,7 +59,7 @@ opt.breakindentopt = 'shift:2'
 -- Assorted options
 opt.autoread = true                    -- Don't bother me when a file changes
 opt.completeopt = { 'menuone', 'noselect' } -- Needed by hrsh7th/nvim-compe
-opt.expandtab = true                   -- No tabs
+opt.expandtab = false                  -- Tabs doggie
 opt.fillchars = { vert = '│' }         -- Make the divider between splits a solid line.
 opt.fixendofline = true                -- Always end with a new line.
 opt.foldenable = false                 -- Start with all folds off.
