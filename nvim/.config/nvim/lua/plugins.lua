@@ -124,13 +124,23 @@ require('packer').startup({
 		-- Treesitter
 		use {
 			'nvim-treesitter/nvim-treesitter',
+			requires = {
+				'andymass/vim-matchup',
+				'RRethy/nvim-treesitter-endwise'
+			},
 			config = function()
 				require('nvim-treesitter.configs').setup {
-					ensure_installed = 'maintained';
+					ensure_installed = 'maintained',
 					highlight = {
 						enable = true
-					};
+					},
 					indent = {
+						enable = true
+					},
+					endwise = {
+						enable = true,
+					},
+					matchup = {
 						enable = true
 					}
 				}
