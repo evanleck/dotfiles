@@ -57,6 +57,7 @@ map('n', '<Leader>bd', ':Bdelete<cr>', { silent = true })
 -- nnoremap <silent> <Leader>bt :BTags<CR>
 
 -- Splits and windows.
+map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })
 map('n', '<Leader>wq', ':q<CR>', { silent = true })
 map('n', '<Leader>ws', ':sp<CR>', { silent = true })
 map('n', '<Leader>wv', ':vs<CR>', { silent = true })
