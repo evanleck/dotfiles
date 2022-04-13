@@ -268,7 +268,7 @@ require('packer').startup({
 
 		-- Status line
 		use {
-			'hoob3rt/lualine.nvim',
+			'nvim-lualine/lualine.nvim',
 			config = function()
 				require('lualine').setup({
 					options = {
