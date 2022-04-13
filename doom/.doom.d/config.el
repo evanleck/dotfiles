@@ -89,3 +89,8 @@
 ;; Org it up.
 ;; org-archive-location
 (setq org-directory "~/Documents")
+
+;; Matchit up
+(use-package! evil-matchit
+	:config
+	(global-evil-matchit-mode 1))
