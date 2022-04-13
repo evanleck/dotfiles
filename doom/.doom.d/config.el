@@ -24,18 +24,18 @@
 ;; Slightly more sane scrolling.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 
-;; Dracula all the things.
-(setq doom-theme 'doom-dracula)
-
-;; Don't gimme that variable pitch nonsense.
-(setq doom-themes-treemacs-enable-variable-pitch nil)
+(setq
+	;; Dracula all the things.
+	doom-theme 'doom-dracula
+	;; Don't gimme that variable pitch nonsense.
+	doom-themes-treemacs-enable-variable-pitch nil)
 
 ;; Stop bothering me about this shit.
 (setq
 	tags-revert-without-query t
 	tags-add-tables nil)
 
-;; Long live the tabs?
+;; Long live the tabs!
 (setq-default
 	tab-width 2
 	indent-tabs-mode t)
@@ -76,15 +76,16 @@
 (add-hook! elixir-mode
 	(add-to-list 'exec-path "~/Code/elixir-ls"))
 
-;; Remove non-projects on exit.
-(setq doom-projectile-cache-purge-non-projects t)
+(use-package! projectile
+	:config
+	;; Remove non-projects on exit.
+	(setq doom-projectile-cache-purge-non-projects t)
 
-;; Tell Projectile where to look for projects.
-(projectile-add-known-project "~/.dotfiles")
-
-(setq
-	projectile-auto-discover t
-	projectile-project-search-path '("~/Code" "~/Code/oft" "~/Code/clones"))
+	;; Tell Projectile where to look for projects.
+	(projectile-add-known-project "~/.dotfiles")
+	(setq
+		projectile-auto-discover t
+		projectile-project-search-path '("~/Code" "~/Code/oft" "~/Code/clones")))
 
 ;; Org it up.
 ;; org-archive-location
