@@ -33,7 +33,7 @@ brew "shellcheck"
 brew "stow"
 brew "watchexec"
 brew "helix-editor/helix/helix"
-brew "railwaycat/emacsmacport/emacs-mac"
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-native-comp"]
 cask "appcleaner"
 cask "firefox"
 cask "font-ibm-plex"
