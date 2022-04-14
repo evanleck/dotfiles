@@ -1,7 +1,3 @@
-require('plugins')
-require('options')
-require('mappings')
-
 local vim = vim
 local api = vim.api
 
@@ -29,3 +25,7 @@ local autocmds = {
 }
 
 nvim_create_augroups(autocmds)
+
+require('plugins')
+require('options')
+require('mappings')
