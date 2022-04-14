@@ -21,6 +21,9 @@ local autocmds = {
 		{ 'VimResized * :wincmd =' },
 		{ 'BufWritePre * call TrimTrailingWhitespace()' },
 		{ 'BufWritePre * call TrimTrailingEmptyLines()' }
+	},
+	dracula_cursorline = {
+		{ 'ColorScheme dracula hi clear CursorLine' }
 	};
 }
 

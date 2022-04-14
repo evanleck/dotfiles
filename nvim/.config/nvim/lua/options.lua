@@ -5,7 +5,7 @@ local opt = vim.opt  -- to set options
 
 -- Options
 opt.background = 'dark'
-cmd 'colorscheme dracula'
+cmd('colorscheme dracula')
 
 opt.termguicolors = true
 
@@ -47,7 +47,8 @@ cmd('filetype plugin indent on')
 -- Because syntax matters.
 cmd('syntax on')
 
--- Line numbers
+-- Lines & line numbers
+opt.cursorline = true
 opt.number = true
 opt.relativenumber = false
 
