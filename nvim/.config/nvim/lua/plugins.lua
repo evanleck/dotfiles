@@ -259,6 +259,7 @@ require('packer').startup({
 		-- Editor
 		use 'b3nj5m1n/kommentary'
 		use 'editorconfig/editorconfig-vim'
+		use 'farmergreg/vim-lastplace'
 		use 'moll/vim-bbye'
 		use 'tpope/vim-eunuch'
 		use 'tpope/vim-surround'
