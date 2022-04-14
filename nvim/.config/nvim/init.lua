@@ -1,5 +1,3 @@
--- TODO: Consider bootstrapping - https://github.com/wbthomason/packer.nvim#bootstrapping
---
 require('plugins')
 require('options')
 require('mappings')
