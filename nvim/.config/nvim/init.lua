@@ -18,9 +18,9 @@ end
 
 local autocmds = {
 	vimrc = {
-		{ 'VimResized', '*', ':wincmd =' },
-		{ 'BufWritePre', '*', 'call TrimTrailingWhitespace()' },
-		{ 'BufWritePre', '*', 'call TrimTrailingEmptyLines()' }
+		{ 'VimResized * :wincmd =' },
+		{ 'BufWritePre * call TrimTrailingWhitespace()' },
+		{ 'BufWritePre * call TrimTrailingEmptyLines()' }
 	};
 }
 
