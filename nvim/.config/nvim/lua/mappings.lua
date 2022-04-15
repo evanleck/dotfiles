@@ -10,7 +10,6 @@ map('n', 'k', 'gk', { noremap = false })
 
 -- Doom Emacs kinda set the stage for this one...
 map('n', '<Space>', '', { noremap = false })
-vim.g.mapleader = ' '
 
 -- Copy to clipboard in normal, visual, select and operator modes
 map('', '<Leader>y', '"+y')

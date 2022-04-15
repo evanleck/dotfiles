@@ -37,6 +37,9 @@ opt.backup = true
 opt.swapfile = true
 opt.undofile = true
 
+-- Lead me.
+vim.g.mapleader = ' '
+
 -- Disable line wrapping.
 opt.wrap = false
 
