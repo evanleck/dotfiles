@@ -1,15 +1,11 @@
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = vim.keymap.set
 
 -- Turn off linewise keys.
-map('n', 'j', 'gj', { noremap = false })
-map('n', 'k', 'gk', { noremap = false })
+map('n', 'j', 'gj', { remap = true })
+map('n', 'k', 'gk', { remap = true })
 
 -- Doom Emacs kinda set the stage for this one...
-map('n', '<Space>', '', { noremap = false })
+map('n', '<Space>', '', { remap = true })
 
 -- Copy to clipboard in normal, visual, select and operator modes
 map('', '<Leader>y', '"+y')
