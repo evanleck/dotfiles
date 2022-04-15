@@ -175,59 +175,22 @@ require('packer').startup({
 			end
 		}
 
-		-- Telescope
+		-- FZF but Lua
 		use {
-			'nvim-telescope/telescope.nvim',
-			requires = {
-				{ 'nvim-lua/popup.nvim' },
-				{ 'nvim-lua/plenary.nvim' },
-				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-			},
+			'ibhagwan/fzf-lua',
 			config = function()
-				local actions = require('telescope.actions')
-
-				require('telescope').setup {
-					defaults = {
-						file_ignore_patterns = { 'node_modules', '.git' },
-						layout_config = {
-							center = {
-								prompt_position = "bottom"
-							}
-						},
-						layout_strategy = 'center',
-						mappings = {
-							i = {
-								['<esc>'] = actions.close
-							},
-						},
-						preview = false, -- no previews
-						vimgrep_arguments = {
-							'rg',
-							'--color=never',
-							'--no-heading',
-							'--with-filename',
-							'--line-number',
-							'--column',
-							'--smart-case',
-							'--hidden'
-						},
+				require('fzf-lua').setup({
+					files = {
+						file_icons = false,
+						git_icons = false
 					},
-					extensions = {
-						fzf = {
-							fuzzy = true,                    -- false will only do exact matching
-							override_generic_sorter = true,  -- override the generic sorter
-							override_file_sorter = true,     -- override the file sorter
-							case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+					winopts = {
+						preview = {
+							default = 'bat_native',
+							hidden = 'hidden'
 						}
-					},
-					pickers = {
-						find_files = {
-							find_command = { 'fd', '--type', 'file', '--hidden', '--exclude', '.git', '--strip-cwd-prefix' }
-						},
 					}
-				}
-
-				require('telescope').load_extension('fzf')
+				})
 			end
 		}
 

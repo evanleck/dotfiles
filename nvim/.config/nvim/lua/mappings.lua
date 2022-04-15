@@ -22,9 +22,9 @@ map('n', '<esc><esc>', ':nohlsearch<cr>', { silent = true })
 -- File explorer.
 map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 
-map('n', '<Leader>/', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-map('n', '<Leader><Leader>', "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
-map('n', '<Leader>sb', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>")
+map('n', '<Leader>/', function() return require('fzf-lua').live_grep_native({ winopts = { preview = { hidden = 'nohidden' } } }) end)
+map('n', '<Leader><Leader>', function() return require('fzf-lua').files() end)
+map('n', '<Leader>sb', function() return require('fzf-lua').lgrep_curbuf({ winopts = { preview = { hidden = 'nohidden' } } }) end)
 
 -- Files
 map('n', '<Leader>fm', ':Rename<Space>')
@@ -40,11 +40,9 @@ map('n', '<Leader>co', ':copen<CR>', { silent = true })
 map('n', '<Leader>cp', ':cp<CR>', { silent = true })
 
 -- Buffers
-map('n', '<Leader>,', "<cmd>lua require('telescope.builtin').buffers()<cr>")
-map('n', '<Leader>bb', "<cmd>lua require('telescope.builtin').buffers()<cr>")
+map('n', '<Leader>,', function() return require('fzf-lua').buffers() end)
+map('n', '<Leader>bb', function() return require('fzf-lua').buffers() end)
 map('n', '<Leader>bd', ':Bdelete<cr>', { silent = true })
--- nnoremap <silent> <Leader>bl :BCommits<CR>
--- nnoremap <silent> <Leader>bt :BTags<CR>
 
 -- Splits and windows.
 map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })
