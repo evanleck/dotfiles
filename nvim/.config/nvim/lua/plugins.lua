@@ -166,23 +166,9 @@ require('packer').startup({
 			config = function()
 				vim.g.nvim_tree_show_icons = {
 					git = 0,
-					folders = 1,
+					folders = 0,
 					files = 0,
 					folder_arrows = 0,
-				}
-
-				vim.g.nvim_tree_icons = {
-					default = '',
-					folder = {
-						arrow_open = "▼",
-						arrow_closed = "▶",
-						default = "▶",
-						open =  "▼",
-						empty = "▶",
-						empty_open = "▼",
-						symlink = "▶",
-						symlink_open = "▼",
-					}
 				}
 
 				require('nvim-tree').setup {}
