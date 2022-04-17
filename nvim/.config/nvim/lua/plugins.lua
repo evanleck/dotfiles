@@ -220,6 +220,9 @@ require('packer').startup({
 			end
 		}
 
+		-- Org mode
+		use 'axvr/org.vim'
+
 		-- Editor
 		use 'b3nj5m1n/kommentary'
 		use 'editorconfig/editorconfig-vim'
