@@ -236,6 +236,13 @@ require('packer').startup({
 		use 'tpope/vim-surround'
 		use 'tpope/vim-unimpaired'
 
+		use {
+			'windwp/nvim-autopairs',
+			config = function()
+				require('nvim-autopairs').setup({})
+			end
+		}
+
 		-- The one true color scheme
 		use { 'dracula/vim', as = 'dracula' }
 
