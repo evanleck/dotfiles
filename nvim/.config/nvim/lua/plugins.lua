@@ -171,7 +171,11 @@ require('packer').startup({
 					folder_arrows = 0,
 				}
 
-				require('nvim-tree').setup {}
+				require('nvim-tree').setup({
+					view = {
+						side = 'right'
+					}
+				})
 			end
 		}
 
