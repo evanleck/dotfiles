@@ -70,6 +70,10 @@
 (add-to-list 'auto-mode-alist
 	'("\\.erb\\'" . (lambda () (web-mode) (flycheck-mode -1))))
 
+;; Disable Ruby's typeprof language server. It's not useful for me right now.
+(after! lsp-mode
+	(add-to-list 'lsp-disabled-clients 'typeprof-ls))
+
 (add-hook! elixir-mode
 	(add-to-list 'exec-path "~/Code/elixir-ls"))
 
