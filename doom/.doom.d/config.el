@@ -15,9 +15,6 @@
 (when IS-MAC
 	(setq doom-font (font-spec :family "JetBrains Mono" :size 12)))
 
-;; Just let me quit already.
-(setq confirm-kill-emacs nil)
-
 ;; Don't jump quite so much each time.
 (setq doom-font-increment 1)
 
