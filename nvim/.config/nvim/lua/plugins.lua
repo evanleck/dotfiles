@@ -173,7 +173,7 @@ require('packer').startup({
 
 				require('nvim-tree').setup({
 					view = {
-						side = 'right'
+						side = 'left'
 					}
 				})
 			end
