@@ -37,6 +37,13 @@ opt.backup = true
 opt.swapfile = true
 opt.undofile = true
 
+-- Neovide configuration
+--   https://github.com/neovide/neovide/wiki/Configuration
+vim.g.neovide_cursor_animation_length = 0
+
+-- GUI font for Neovide
+opt.guifont = "JetBrains Mono:h12"
+
 -- Lead me.
 vim.g.mapleader = ' '
 
