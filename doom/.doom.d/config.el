@@ -93,7 +93,11 @@
 
 ;; Org it up.
 ;; org-archive-location
-(setq org-directory "~/Documents")
+(setq
+	org-directory "~/Documents/Org"
+	org-default-notes-file (concat org-directory "/Inbox.org")
+	+org-capture-notes-file "Inbox.org"
+	+org-capture-todo-file "Inbox.org")
 
 ;; Matchit up
 (use-package! evil-matchit
