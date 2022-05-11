@@ -37,6 +37,9 @@
 	tab-width 2
 	indent-tabs-mode t)
 
+;; Don't mess with my clipboard.
+(setq select-enable-clipboard nil)
+
 ;; Sorting should ignore case.
 (setq sort-fold-case t)
 
@@ -96,3 +99,8 @@
 (use-package! evil-matchit
 	:config
 	(global-evil-matchit-mode 1))
+
+;; Simple my clips already.
+(use-package! simpleclip
+	:config
+	(simpleclip-mode 1))
