@@ -25,6 +25,7 @@ brew "git-delta"
 brew "gnupg"
 brew "jq"
 brew "lazygit"
+brew "libvterm"
 brew "neovim"
 brew "postgresql", restart_service: true
 brew "redis"
