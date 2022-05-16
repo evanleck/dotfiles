@@ -11,13 +11,6 @@ if type asdf &>/dev/null; then
 	asdf plugin update --all
 fi
 
-# Update neovim's plugins.
-if type nvim &>/dev/null; then
-	echo 'Updating neovim packages'
-	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-	echo
-fi
-
 # DOOM
 if type doom &>/dev/null; then
 	doom upgrade
