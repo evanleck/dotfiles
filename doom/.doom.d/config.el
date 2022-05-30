@@ -69,6 +69,11 @@
 (add-hook! js2-mode
 	(modify-syntax-entry ?_ "w"))
 
+;; Per the README and https://github.com/felipeochoa/rjsx-mode/issues/85, this
+;; is the only way to get tabs in my JavaScript.
+(add-hook! rjsx-mode
+	(setq-local indent-line-function 'js-jsx-indent-line))
+
 ;; Disable flycheck-mode for erb web-mode files.
 (add-to-list 'auto-mode-alist
 	'("\\.erb\\'" . (lambda () (web-mode) (flycheck-mode -1))))
