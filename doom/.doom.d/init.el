@@ -103,7 +103,7 @@
 	;;prodigy           ; FIXME managing external services & code builders
 	;;rgb               ; creating color strings
 	;;taskrunner        ; taskrunner for all your projects
-	;;terraform         ; infrastructure as code
+	terraform         ; infrastructure as code
 	;;tmux              ; an API for interacting with tmux
 	;;upload            ; map local to remote projects via ssh/ftp
 
@@ -139,7 +139,7 @@
 	;;hy                ; readability of scheme w/ speed of python
 	;;idris             ; a language you can depend on
 	json              ; At least it ain't XML
-	;;(java +lsp)       ; the poster child for carpal tunnel syndrome
+	java       ; the poster child for carpal tunnel syndrome
 	(javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
 	;;julia             ; a better, faster MATLAB
 	;;kotlin            ; a better, slicker Java(Script)
