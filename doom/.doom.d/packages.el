@@ -8,3 +8,5 @@
 
 (package! tree-sitter)
 (package! tree-sitter-langs)
+
+(package! mixed-pitch :disable t)
