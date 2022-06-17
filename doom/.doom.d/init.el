@@ -54,6 +54,7 @@
 
 	:editor
 	(evil +everywhere); come to the dark side, we have cookies
+	evil-matchit
 	file-templates    ; auto-snippets for empty files
 	fold              ; (nigh) universal code folding
 	;;(format +onsave)  ; automated prettiness

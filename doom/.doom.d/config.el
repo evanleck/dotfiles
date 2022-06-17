@@ -109,11 +109,6 @@
 	:config
 	(setq writeroom-width 72))
 
-;; Matchit up
-(use-package! evil-matchit
-	:config
-	(global-evil-matchit-mode 1))
-
 ;; Simple my clips already.
 (use-package! simpleclip
 	:config
