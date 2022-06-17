@@ -104,6 +104,11 @@
 	+org-capture-notes-file "Inbox.org"
 	+org-capture-todo-file "Inbox.org")
 
+;; Pull this in a little bit.
+(use-package! writeroom-mode
+	:config
+	(setq writeroom-width 72))
+
 ;; Matchit up
 (use-package! evil-matchit
 	:config
