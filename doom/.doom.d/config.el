@@ -109,9 +109,7 @@
 	:config
 	(setq writeroom-width 72))
 
-;; Tree-sitter
+;; Always sit in the trees.
 (use-package! tree-sitter
 	:config
-	(require 'tree-sitter-langs)
-	(global-tree-sitter-mode)
-	(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+	(global-tree-sitter-mode))

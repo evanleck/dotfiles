@@ -16,6 +16,7 @@
 
 (doom!
 	:input
+	;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
 	;;chinese
 	;;japanese
 	;;layout            ; auie,ctsrnm is the superior home row
@@ -90,7 +91,7 @@
 	;;biblio            ; Writes a PhD for you (citation needed)
 	;;debugger          ; FIXME stepping through code, to help you add bugs
 	;;direnv
-	;;docker
+	docker
 	editorconfig      ; let someone else argue about tabs vs spaces
 	;;ein               ; tame Jupyter notebooks with emacs
 	(eval +overlay)     ; run code, run (also, repls)
@@ -107,6 +108,7 @@
 	;;taskrunner        ; taskrunner for all your projects
 	terraform         ; infrastructure as code
 	;;tmux              ; an API for interacting with tmux
+	tree-sitter       ; syntax and parsing, sitting in a tree...
 	;;upload            ; map local to remote projects via ssh/ftp
 
 	:os
@@ -126,7 +128,7 @@
 	;;(dart +flutter)   ; paint ui and not much else
 	;;dhall
 	(elixir +lsp)            ; erlang done right
-	elm               ; care for a cup of TEA?
+	;;elm               ; care for a cup of TEA?
 	emacs-lisp        ; drown in parentheses
 	;;erlang            ; an elegant language for a more civilized age
 	;;ess               ; emacs speaks statistics
@@ -137,6 +139,7 @@
 	;;fstar             ; (dependent) types and (monadic) effects and Z3
 	;;gdscript          ; the language you waited for
 	;;(go +lsp)         ; the hipster dialect
+	;;(graphql +lsp)    ; Give queries a REST
 	;;(haskell +lsp)    ; a language that's lazier than I am
 	;;hy                ; readability of scheme w/ speed of python
 	;;idris             ; a language you can depend on
