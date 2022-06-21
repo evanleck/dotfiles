@@ -3,7 +3,6 @@
 
 (package! dockerfile-mode)
 (package! nginx-mode)
-(package! simpleclip)
 
 (package! tree-sitter)
 (package! tree-sitter-langs)

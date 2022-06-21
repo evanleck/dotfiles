@@ -109,11 +109,6 @@
 	:config
 	(setq writeroom-width 72))
 
-;; Simple my clips already.
-(use-package! simpleclip
-	:config
-	(simpleclip-mode 1))
-
 ;; Tree-sitter
 (use-package! tree-sitter
 	:config
