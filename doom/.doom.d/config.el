@@ -82,9 +82,6 @@
 (after! lsp-mode
 	(add-to-list 'lsp-disabled-clients 'typeprof-ls))
 
-(add-hook! elixir-mode
-	(add-to-list 'exec-path "~/Code/elixir-ls"))
-
 (use-package! projectile
 	:config
 	;; Remove non-projects on exit.
