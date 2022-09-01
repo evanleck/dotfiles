@@ -1,5 +1,9 @@
 # Pull in asdf.
-source /usr/local/opt/asdf/libexec/asdf.fish
+if test -d '/usr/local/opt/asdf'
+	source '/usr/local/opt/asdf/libexec/asdf.fish'
+else if test -d '/opt/homebrew/opt/asdf'
+	source '/opt/homebrew/opt/asdf/libexec/asdf.fish'
+end
 
 # Add Homebrew's sbin directory.
 fish_add_path /usr/local/sbin
