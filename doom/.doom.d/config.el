@@ -101,6 +101,14 @@
 	+org-capture-notes-file "Inbox.org"
 	+org-capture-todo-file "Inbox.org")
 
+;; Gimme that Command+B, Command+I that I know and love.
+;;   https://emacs.stackexchange.com/questions/63842/standard-mac-windows-keybindings-for-italics-bold-and-underline-in-org-mode
+(use-package! evil-org
+	:config
+	(map! :map evil-org-mode-map
+		:v "s-b" (lambda () (interactive) (org-emphasize ?\*))
+		:v "s-i" (lambda () (interactive) (org-emphasize ?\/))))
+
 ;; Pull this in a little bit.
 (use-package! writeroom-mode
 	:config
