@@ -23,15 +23,6 @@ set -x EDITOR nvim
 set -x LG_CONFIG_FILE ~/.config/lazygit/config.yml
 set -x RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 
-# Aliases.
-alias be "bundle exec"
-alias c clear
-alias cat bat
-alias g git
-alias ls exa
-alias lsa "exa --header --long --git --all"
-alias gg lazygit
-
 # Modify Dracula's colors slightly.
 #   See conf.d/dracula.fish for the color definitions.
 #   See https://github.com/fish-shell/fish-shell/blob/master/doc_src/interactive.rst#syntax-highlighting-variables for variable names.
