@@ -1,13 +1,13 @@
-# Pull in asdf.
-if test -d /usr/local/opt/asdf
-	source /usr/local/opt/asdf/libexec/asdf.fish
-else if test -d /opt/homebrew/opt/asdf
-	source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# Load in Homebrew
+if test -f /opt/homebrew/bin/brew
+	eval (/opt/homebrew/bin/brew shellenv)
+else if -f /usr/local/bin/brew
+	eval (/usr/local/bin/brew shellenv)
 end
 
-# Add Homebrew's sbin directory.
-if test -d /usr/local/sbin
-	fish_add_path /usr/local/sbin
+# Pull in asdf.
+if test -f (brew --prefix asdf)"/libexec/asdf.fish"
+	source (brew --prefix asdf)"/libexec/asdf.fish"
 end
 
 # Add Doom to our PATH.
