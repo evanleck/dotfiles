@@ -6,8 +6,8 @@ else if test -f /usr/local/bin/brew
 end
 
 # Pull in asdf.
-if test -f (brew --prefix asdf)"/libexec/asdf.fish"
-	source (brew --prefix asdf)"/libexec/asdf.fish"
+if test -f (brew --prefix asdf)/libexec/asdf.fish
+	source (brew --prefix asdf)/libexec/asdf.fish
 end
 
 # Add Doom to our PATH.
