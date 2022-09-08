@@ -15,8 +15,6 @@ if test -d ~/.emacs.d/bin
 	fish_add_path ~/.emacs.d/bin
 end
 
-# Add our own bin directory to the PATH.
-fish_add_path ~/.bin
 
 # Environment variables.
 set -x EDITOR nvim
