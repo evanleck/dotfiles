@@ -15,6 +15,8 @@ if test -d ~/.emacs.d/bin
 	fish_add_path ~/.emacs.d/bin
 end
 
+# Hush, homebrew
+set -x HOMEBREW_NO_ENV_HINTS 1
 
 # Environment variables.
 set -x EDITOR nvim
