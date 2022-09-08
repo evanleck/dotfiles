@@ -94,10 +94,11 @@
 		projectile-project-search-path '("~/Code" "~/Code/oft" "~/Code/clones")))
 
 ;; Org it up.
-;; org-archive-location
 (setq
 	org-directory "~/Documents/Org"
+	org-archive-location (concat org-directory "/Archive/" (format-time-string "%Y-%m") ".org::* From %s")
 	org-default-notes-file (concat org-directory "/Inbox.org")
+	org-archive-file-header-format nil
 	+org-capture-notes-file "Inbox.org"
 	+org-capture-todo-file "Inbox.org")
 
