@@ -24,14 +24,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# User specific environment
-if ! [[ "${PATH}" =~ "${HOME}/.local/bin:" ]]
-then
-    PATH="${HOME}/.local/bin:${PATH}"
-fi
-
-export PATH
-
 source "${HOME}/.aliases"
 source "${HOME}/.env"
 
