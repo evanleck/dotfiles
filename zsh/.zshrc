@@ -63,7 +63,3 @@ source_if_present "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # ZSH syntax highlighting
 source_if_present "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source_if_present "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# Starship
-#   https://starship.rs
-eval "$(starship init zsh)"
