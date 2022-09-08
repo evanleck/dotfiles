@@ -1,0 +1,34 @@
+if [ -f "${HOME}/.bashrc" ]; then
+  source "${HOME}/.bashrc"
+fi
+
+# Load in Homebrew
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f "/usr/local/bin/brew" ] && eval "$(/usr/local/bin/brew shellenv)"
+
+# ASDF via Homebrew
+[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
+
+# Doom
+[ -d "${HOME}/.emacs.d/bin" ] && export PATH="${HOME}/.emacs.d/bin:${PATH}"
+
+# Tell ripgrep where to look for configuration.
+export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"
+
+# Tell Homebrew to cleanup.
+export HOMEBREW_INSTALL_CLEANUP=1
+export HOMEBREW_NO_GITHUB_API=1
+
+# For command line editing.
+export EDITOR='nvim'
+
+# FZF configuration.
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+export FZF_ALT_C_COMMAND="${FZF_DEFAULT_COMMAND}"
+export FZF_DEFAULT_OPTS="
+--exact
+--color=dark
+--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+"
