@@ -94,13 +94,20 @@
 		projectile-project-search-path '("~/Code" "~/Code/oft" "~/Code/clones")))
 
 ;; Org it up.
-(setq
-	org-directory "~/Documents/Org"
-	org-archive-location (concat org-directory "/Archive/" (format-time-string "%Y-%m") ".org::* From %s")
-	org-default-notes-file (concat org-directory "/Inbox.org")
-	org-archive-file-header-format nil
-	+org-capture-notes-file "Inbox.org"
-	+org-capture-todo-file "Inbox.org")
+(use-package! org
+	:config
+	(setq-local
+		my-org-directory "~/Documents/Org"
+		my-org-inbox "Inbox.org")
+
+	(setq
+		org-directory my-org-directory
+		org-archive-location (concat org-directory "/Archive/" (format-time-string "%Y-%m") ".org::* From %s")
+		org-default-notes-file (concat org-directory "/" my-org-inbox)
+		org-archive-file-header-format nil
+		org-image-actual-width 500
+		+org-capture-notes-file my-org-inbox
+		+org-capture-todo-file my-org-inbox))
 
 ;; Gimme that Command+B, Command+I that I know and love.
 ;;   https://emacs.stackexchange.com/questions/63842/standard-mac-windows-keybindings-for-italics-bold-and-underline-in-org-mode
