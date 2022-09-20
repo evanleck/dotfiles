@@ -102,6 +102,7 @@
 
 	(setq
 		org-directory my-org-directory
+		org-agenda-files (list my-org-directory)
 		org-archive-location (concat org-directory "/Archive/" (format-time-string "%Y-%m") ".org::* From %s")
 		org-default-notes-file (concat org-directory "/" my-org-inbox)
 		org-archive-file-header-format nil
