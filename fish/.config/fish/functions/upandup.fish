@@ -10,6 +10,12 @@ function upandup --description "Update Homebrew, asdf, and Doom"
 		asdf plugin update --all
 	end
 
+	# fisher
+	if type -q fisher
+		fisher update
+		exec fish
+	end
+
 	# Doom
 	if type -q doom
 		doom upgrade
