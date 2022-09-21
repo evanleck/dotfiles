@@ -82,13 +82,11 @@
 (after! lsp-mode
 	(add-to-list 'lsp-disabled-clients 'typeprof-ls))
 
-(use-package! projectile
-	:config
+(after! projectile
+	(projectile-add-known-project "~/.dotfiles")
 	;; Remove non-projects on exit.
 	(setq doom-projectile-cache-purge-non-projects t)
-
-	;; Tell Projectile where to look for projects.
-	(projectile-add-known-project "~/.dotfiles")
+	;; Discover projects here.
 	(setq
 		projectile-auto-discover t
 		projectile-project-search-path '("~/Code" "~/Code/oft" "~/Code/clones")))
@@ -112,18 +110,15 @@
 
 ;; Gimme that Command+B, Command+I that I know and love.
 ;;   https://emacs.stackexchange.com/questions/63842/standard-mac-windows-keybindings-for-italics-bold-and-underline-in-org-mode
-(use-package! evil-org
-	:config
+(after! evil-org
 	(map! :map evil-org-mode-map
 		:v "s-b" (lambda () (interactive) (org-emphasize ?\*))
 		:v "s-i" (lambda () (interactive) (org-emphasize ?\/))))
 
 ;; Pull this in a little bit.
-(use-package! writeroom-mode
-	:config
+(after! writeroom-mode
 	(setq writeroom-width 72))
 
 ;; Always sit in the trees.
-(use-package! tree-sitter
-	:config
+(after! tree-sitter
 	(global-tree-sitter-mode))
