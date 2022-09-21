@@ -11,3 +11,19 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+"^" = "goto_line_start"
+"$" = "goto_line_end"
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+
+[keys.normal.space]
+"space" = "file_picker"
+"," = "buffer_picker"
+
+# [keys.normal.space.b]
+# b = "buffer_picker"
+# d = "buffer_close"
