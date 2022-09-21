@@ -1,33 +1,24 @@
-local vim = vim
 local api = vim.api
 
-function nvim_create_augroups(definitions)
-	for group_name, definition in pairs(definitions) do
-		api.nvim_command('augroup '..group_name)
-		api.nvim_command('autocmd!')
-		for _, def in ipairs(definition) do
-			-- if type(def) == 'table' and type(def[#def]) == 'function' then
-			-- 	def[#def] = lua_callback(def[#def])
-			-- end
-			local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-			api.nvim_command(command)
-		end
-		api.nvim_command('augroup END')
-	end
-end
+api.nvim_create_augroup('resize', { clear = true })
+api.nvim_create_autocmd('VimResized', {
+	group = 'resize',
+	pattern = '*',
+	command = 'wincmd ='
+})
 
-local autocmds = {
-	vimrc = {
-		{ 'VimResized * :wincmd =' },
-		{ 'BufWritePre * call TrimTrailingWhitespace()' },
-		{ 'BufWritePre * call TrimTrailingEmptyLines()' }
-	},
-	dracula_cursorline = {
-		{ 'ColorScheme dracula hi clear CursorLine' }
-	};
-}
+api.nvim_create_augroup('trim', { clear = true })
+api.nvim_create_autocmd('BufWritePre', {
+	group = 'trim',
+	pattern = '*',
+	command = 'call TrimTrailingEmptyLines()'
+})
 
-nvim_create_augroups(autocmds)
+api.nvim_create_augroup('dracula', { clear = true })
+api.nvim_create_autocmd('ColorScheme dracula', {
+	group = 'dracula',
+	command = 'hi clear CursorLine'
+})
 
 require('plugins')
 require('options')
