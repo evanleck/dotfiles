@@ -22,6 +22,9 @@ map('n', '<esc><esc>', ':nohlsearch<cr>', { silent = true })
 -- File explorer.
 map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 
+-- Clipboard
+map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.default() end)
+
 map('n', '<Leader>/', function() return require('telescope.builtin').live_grep() end)
 map('n', '<Leader><Leader>', function() return require('telescope.builtin').find_files({ hidden = true }) end)
 map('n', '<Leader>sb', function() return require('telescope.builtin').current_buffer_fuzzy_find() end)
