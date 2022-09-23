@@ -29,6 +29,10 @@ map('n', '<Leader>/', function() return require('telescope.builtin').live_grep()
 map('n', '<Leader><Leader>', function() return require('telescope.builtin').find_files({ hidden = true }) end)
 map('n', '<Leader>sb', function() return require('telescope.builtin').current_buffer_fuzzy_find() end)
 
+-- Updates
+map('n', '<Leader>up', function() return require('packer').sync() end)
+map('n', '<Leader>ut', ':TSUpdate<CR>', { silent = true })
+
 -- Files
 map('n', '<Leader>fm', ':Rename<Space>')
 map('n', '<Leader>fD', ':Delete<CR>', { silent = true })
