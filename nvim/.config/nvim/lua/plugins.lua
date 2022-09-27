@@ -4,10 +4,12 @@ local fn = vim.fn
 -- Bootstrap packer.nvim if necessary.
 --   https://github.com/wbthomason/packer.nvim#bootstrapping
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_bootstrap = false
 
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 	vim.cmd [[packadd packer.nvim]]
+	packer_bootstrap = true
 end
 
 -- Plugins
@@ -18,42 +20,40 @@ require('packer').startup({
 
 		-- LSP
 		use {
-			'neovim/nvim-lspconfig',
+			'williamboman/mason.nvim',
 			requires = {
 				'hrsh7th/cmp-nvim-lsp',
-				'williamboman/nvim-lsp-installer'
+				'neovim/nvim-lspconfig',
+				'williamboman/mason-lspconfig.nvim'
 			},
 			config = function()
-				-- Taken directly from https://github.com/neovim/nvim-lspconfig#suggested-configuration
+				require('mason').setup()
+				local lspconfig = require('mason-lspconfig')
+				lspconfig.setup()
 
-				-- Mappings.
-				-- See `:help vim.diagnostic.*` for documentation on any of the below functions
-				local opts = { noremap = true, silent = true }
-				vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-				vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-				vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-				vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
-				-- Use an on_attach function to only map the following keys
-				-- after the language server attaches to the current buffer
+				-- Taken in part from https://github.com/neovim/nvim-lspconfig#suggested-configuration
+				-- Use an on_attach function to only map the following keys after the
+				-- language server attaches to the current buffer
 				local on_attach = function(client, bufnr)
+					local map = vim.keymap.set
+
 					-- Enable completion triggered by <c-x><c-o>
 					vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 					-- Mappings.
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-					-- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-					vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+					map('n', '<Leader>aa', vim.lsp.buf.code_action, { buffer = bufnr, silent = true })
+					map('n', '<Leader>ad', vim.lsp.buf.type_definition, { buffer = bufnr, silent = true })
+					map('n', '<Leader>af', vim.lsp.buf.formatting, { buffer = bufnr, silent = true })
+					map('n', '<Leader>ar', vim.lsp.buf.rename, { buffer = bufnr, silent = true })
+					map('n', '<Leader>as', vim.lsp.buf.signature_help, { buffer = bufnr, silent = true })
+					map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, { buffer = bufnr, silent = true })
+					map('n', '<Leader>wl', function() return print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { buffer = bufnr, silent = true })
+					map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, { buffer = bufnr, silent = true })
+					map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, silent = true })
+					map('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, silent = true })
+					map('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, silent = true })
+					map('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, silent = true })
 				end
 
 				local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -68,13 +68,11 @@ require('packer').startup({
 					}
 				}
 
-				-- Register a handler that will be called for all installed servers.
-				-- Alternatively, you may also register handlers on specific server instances instead (see example below).
-				require('nvim-lsp-installer').on_server_ready(function(server)
-					-- This setup() function is exactly the same as lspconfig's setup function.
-					-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-					server:setup(opts)
-				end)
+				lspconfig.setup_handlers({
+					function(server)
+						require('lspconfig')[server].setup(opts)
+					end
+				})
 			end
 		}
 
@@ -308,9 +306,6 @@ require('packer').startup({
 	config = {
 		display = {
 			open_fn = require('packer.util').float,
-		},
-		profile = {
-			enable = false
 		}
 	}
 })

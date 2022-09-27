@@ -25,6 +25,14 @@ map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 -- Clipboard
 map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.default() end)
 
+-- Editing
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+map('n', '<Leader>do', vim.diagnostic.open_float, { silent = true })
+map('n', '<Leader>dl', vim.diagnostic.setloclist, { silent = true })
+map('n', '[d', vim.diagnostic.goto_prev, { silent = true })
+map('n', ']d', vim.diagnostic.goto_next, { silent = true })
+
+-- Finding
 map('n', '<Leader>/', function() return require('telescope.builtin').live_grep() end)
 map('n', '<Leader><Leader>', function() return require('telescope.builtin').find_files({ hidden = true }) end)
 map('n', '<Leader>sb', function() return require('telescope.builtin').current_buffer_fuzzy_find() end)
@@ -41,7 +49,7 @@ map('n', '<Leader>fs', ':w<CR>', { silent = true })
 -- Quickfix
 map('n', '<Leader>cN', ':cnewer<CR>', { silent = true })
 map('n', '<Leader>cP', ':colder<CR>', { silent = true })
-map('n', '<Leader>ck', ':cclose<CR>', { silent = true })
+map('n', '<Leader>cq', ':cclose<CR>', { silent = true })
 map('n', '<Leader>cn', ':cn<CR>', { silent = true })
 map('n', '<Leader>co', ':copen<CR>', { silent = true })
 map('n', '<Leader>cp', ':cp<CR>', { silent = true })
