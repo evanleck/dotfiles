@@ -14,9 +14,9 @@ api.nvim_create_autocmd('BufWritePre', {
 	command = 'call TrimTrailingEmptyLines()'
 })
 
-api.nvim_create_augroup('dracula', { clear = true })
-api.nvim_create_autocmd('ColorScheme dracula', {
-	group = 'dracula',
+api.nvim_create_augroup('colorscheme', { clear = true })
+api.nvim_create_autocmd('ColorScheme *', {
+	group = 'colorscheme',
 	command = 'hi clear CursorLine'
 })
 
