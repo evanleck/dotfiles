@@ -68,7 +68,6 @@ opt.breakindentopt = 'shift:2'
 
 -- Assorted options
 opt.autoread = true                    -- Don't bother me when a file changes
-opt.completeopt = { 'menuone', 'noselect' } -- Needed by hrsh7th/nvim-compe
 opt.expandtab = false                  -- Tabs doggie
 opt.fillchars = { vert = '│' }         -- Make the divider between splits a solid line.
 opt.fixendofline = true                -- Always end with a new line.

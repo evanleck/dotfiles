@@ -22,7 +22,6 @@ require('packer').startup({
 		use {
 			'williamboman/mason.nvim',
 			requires = {
-				'hrsh7th/cmp-nvim-lsp',
 				'neovim/nvim-lspconfig',
 				'williamboman/mason-lspconfig.nvim'
 			},
@@ -56,11 +55,7 @@ require('packer').startup({
 					map('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, silent = true })
 				end
 
-				local capabilities = vim.lsp.protocol.make_client_capabilities()
-				capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
 				local opts = {
-					capabilities = capabilities,
 					on_attach = on_attach,
 					flags = {
 						-- This will be the default in neovim 0.7+
@@ -76,49 +71,6 @@ require('packer').startup({
 			end
 		}
 
-		-- Auto complete
-		use {
-			'hrsh7th/nvim-cmp',
-			requires = {
-				'hrsh7th/cmp-buffer',
-				'hrsh7th/cmp-nvim-lsp'
-			},
-			config = function()
-				local cmp = require('cmp')
-
-				cmp.setup({
-					mapping = {
-						['<C-p>'] = cmp.mapping.select_prev_item(),
-						['<C-n>'] = cmp.mapping.select_next_item(),
-						['<C-d>'] = cmp.mapping.scroll_docs(-4),
-						['<C-f>'] = cmp.mapping.scroll_docs(4),
-						['<C-Space>'] = cmp.mapping.complete(),
-						['<C-e>'] = cmp.mapping.close(),
-						['<CR>'] = cmp.mapping.confirm {
-							behavior = cmp.ConfirmBehavior.Replace,
-							select = true,
-						},
-						['<Tab>'] = function(fallback)
-							if cmp.visible() then
-								cmp.select_next_item()
-							else
-								fallback()
-							end
-						end,
-						['<S-Tab>'] = function(fallback)
-							if cmp.visible() then
-								cmp.select_prev_item()
-							else
-								fallback()
-							end
-						end,
-					},
-					sources = {
-						{ name = 'nvim_lsp' },
-					},
-				})
-			end
-		}
 
 		-- Treesitter
 		use {
@@ -149,11 +101,11 @@ require('packer').startup({
 		-- Treesitter context
 		use {
 			'lewis6991/nvim-treesitter-context',
-			requires = { { 'nvim-treesitter/nvim-treesitter' } },
+			requires = { 'nvim-treesitter/nvim-treesitter' },
 			config = function()
 				require('treesitter-context').setup {
-					enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-					throttle = true, -- Throttles plugin updates (may improve performance)
+					enable = true,
+					throttle = true,
 				}
 			end
 		}
@@ -184,13 +136,11 @@ require('packer').startup({
 		use {
 			'nvim-telescope/telescope.nvim',
 			requires = {
-				{ 'nvim-lua/popup.nvim' },
 				{ 'nvim-lua/plenary.nvim' },
+				{ 'nvim-lua/popup.nvim' },
 				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 			},
 			config = function()
-				local actions = require('telescope.actions')
-
 				require('telescope').setup {
 					defaults = {
 						file_ignore_patterns = { 'node_modules', '.git' },
@@ -202,7 +152,7 @@ require('packer').startup({
 						layout_strategy = 'center',
 						mappings = {
 							i = {
-								['<esc>'] = actions.close
+								['<esc>'] = require('telescope.actions').close
 							},
 						},
 						preview = false, -- no previews
@@ -236,12 +186,13 @@ require('packer').startup({
 			end
 		}
 
+		-- Dress up some vim functions
+		use { 'stevearc/dressing.nvim' }
+
 		-- Git signs
 		use {
 			'lewis6991/gitsigns.nvim',
-			requires = {
-				'nvim-lua/plenary.nvim'
-			},
+			requires = { 'nvim-lua/plenary.nvim' },
 			config = function()
 				require('gitsigns').setup()
 			end
@@ -251,18 +202,25 @@ require('packer').startup({
 		use 'axvr/org.vim'
 
 		-- Editor
-		use 'b3nj5m1n/kommentary'
 		use 'editorconfig/editorconfig-vim'
 		use 'farmergreg/vim-lastplace'
-		use 'moll/vim-bbye'
 		use 'tpope/vim-eunuch'
-		use 'tpope/vim-surround'
-		use 'tpope/vim-unimpaired'
 
+		-- All kinds of good stuff.
 		use {
-			'windwp/nvim-autopairs',
+			'echasnovski/mini.nvim',
 			config = function()
-				require('nvim-autopairs').setup({})
+				local sessions = vim.fn.stdpath('data')..'/sessions'
+				if vim.fn.empty(vim.fn.glob(sessions)) > 0 then
+					vim.fn.system({ 'mkdir', '-p', sessions })
+				end
+
+				require('mini.bufremove').setup()
+				require('mini.comment').setup()
+				require('mini.completion').setup()
+				require('mini.pairs').setup()
+				require('mini.sessions').setup({ directory = sessions })
+				require('mini.surround').setup()
 			end
 		}
 

@@ -49,6 +49,19 @@ map('n', '<Leader>fm', ':Rename<Space>')
 map('n', '<Leader>fD', ':Delete<CR>', { silent = true })
 map('n', '<Leader>fs', ':w<CR>', { silent = true })
 
+-- Whitespace
+-- Largely aped from
+-- https://github.com/monkoose/neovim-setup/blob/0725b1ef821c58d02fba0fa3c688f0ebc69ecca8/lua/custom/unimpaired.lua#L1-L20
+map('n', ']<Space>', function()
+	local line = vim.fn.line(".")
+	vim.api.nvim_buf_set_lines(0, line, line, true, { "" })
+end, { silent = true })
+
+map('n', '[<Space>', function()
+	local line = vim.fn.line(".") - 1
+	vim.api.nvim_buf_set_lines(0, line, line, true, { "" })
+end, { silent = true })
+
 -- Quickfix
 map('n', '<Leader>cN', ':cnewer<CR>', { silent = true })
 map('n', '<Leader>cP', ':colder<CR>', { silent = true })
@@ -57,10 +70,15 @@ map('n', '<Leader>cn', ':cn<CR>', { silent = true })
 map('n', '<Leader>co', ':copen<CR>', { silent = true })
 map('n', '<Leader>cp', ':cp<CR>', { silent = true })
 
+-- Sessions
+map('n', '<Leader>sd', function() return require('mini.sessions').select('delete') end, { silent = true })
+map('n', '<Leader>so', function() return require('mini.sessions').select('read') end, { silent = true })
+map('n', '<Leader>ss', function() return require('mini.sessions').select('write') end, { silent = true })
+
 -- Buffers
 map('n', '<Leader>,', function() return require('telescope.builtin').buffers() end)
 map('n', '<Leader>bb', function() return require('telescope.builtin').buffers() end)
-map('n', '<Leader>bd', ':Bdelete<cr>', { silent = true })
+map('n', '<Leader>bd', function() return require('mini.bufremove').delete() end, { silent = true })
 
 -- Splits and windows.
 map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })
