@@ -25,6 +25,9 @@ map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 -- Clipboard
 map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.default() end)
 
+-- Quitting
+map('n', '<Leader>qa', ':qa<CR>', { silent = true })
+
 -- Editing
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 map('n', '<Leader>do', vim.diagnostic.open_float, { silent = true })
