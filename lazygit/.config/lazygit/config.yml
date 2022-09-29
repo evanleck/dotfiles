@@ -1,7 +1,12 @@
 gui:
+  showBottomLine: false
   showCommandLog: false
   showFileTree: false
   showRandomTip: false
+
+  theme:
+    selectedLineBgColor:
+      - default
 
 git:
   paging:
