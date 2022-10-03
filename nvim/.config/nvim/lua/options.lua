@@ -4,8 +4,6 @@ local opt = vim.opt  -- to set options
 
 -- Options
 opt.background = 'dark'
-cmd('colorscheme dracula')
-
 opt.termguicolors = true
 
 -- Because everything is UTF-8.

@@ -71,7 +71,6 @@ require('packer').startup({
 			end
 		}
 
-
 		-- Treesitter
 		use {
 			'nvim-treesitter/nvim-treesitter',
@@ -224,8 +223,17 @@ require('packer').startup({
 			end
 		}
 
-		-- The one true color scheme
-		use { 'dracula/vim', as = 'dracula' }
+		-- Colorscheme
+		use {
+			'catppuccin/nvim',
+			as = 'catppuccin',
+			config = function()
+				vim.g.catppuccin_flavour = 'mocha'
+				require('catppuccin').setup()
+
+				vim.cmd('colorscheme catppuccin')
+			end
+		}
 
 		-- Status line
 		use {
@@ -236,7 +244,7 @@ require('packer').startup({
 						component_separators = '',
 						icons_enabled = false,
 						section_separators = '',
-						theme = 'dracula'
+						theme = 'catppuccin'
 					}
 				})
 			end
