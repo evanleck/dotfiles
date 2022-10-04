@@ -15,8 +15,9 @@ api.nvim_create_autocmd('BufWritePre', {
 })
 
 api.nvim_create_augroup('colorscheme', { clear = true })
-api.nvim_create_autocmd('ColorScheme *', {
+api.nvim_create_autocmd('ColorScheme', {
 	group = 'colorscheme',
+	pattern = '*',
 	command = 'hi clear CursorLine'
 })
 
