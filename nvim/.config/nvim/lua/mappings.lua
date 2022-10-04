@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local api = vim.api
 
 -- Turn off linewise keys.
 map('n', 'j', 'gj', { remap = true })
@@ -27,6 +28,29 @@ map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.defaul
 
 -- Quitting
 map('n', '<Leader>qa', ':qa<CR>', { silent = true })
+
+-- LSP
+api.nvim_create_augroup('lsp-keymap', { clear = true })
+api.nvim_create_autocmd('LspAttach', {
+	group = 'lsp-keymap',
+	callback = function(args)
+		local buffer = args.buf
+
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		map('n', '<Leader>aa', vim.lsp.buf.code_action, { buffer = buffer, silent = true })
+		map('n', '<Leader>ad', vim.lsp.buf.type_definition, { buffer = buffer, silent = true })
+		map('n', '<Leader>af', vim.lsp.buf.formatting, { buffer = buffer, silent = true })
+		map('n', '<Leader>ar', vim.lsp.buf.rename, { buffer = buffer, silent = true })
+		map('n', '<Leader>as', vim.lsp.buf.signature_help, { buffer = buffer, silent = true })
+		map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, { buffer = buffer, silent = true })
+		map('n', '<Leader>wl', function() return print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { buffer = buffer, silent = true })
+		map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, { buffer = buffer, silent = true })
+		map('n', 'K', vim.lsp.buf.hover, { buffer = buffer, silent = true })
+		map('n', 'gD', vim.lsp.buf.declaration, { buffer = buffer, silent = true })
+		map('n', 'gd', vim.lsp.buf.definition, { buffer = buffer, silent = true })
+		map('n', 'gr', vim.lsp.buf.references, { buffer = buffer, silent = true })
+	end
+})
 
 -- Editing
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

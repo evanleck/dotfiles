@@ -29,43 +29,9 @@ require('packer').startup({
 				require('mason').setup()
 				local lspconfig = require('mason-lspconfig')
 				lspconfig.setup()
-
-				-- Taken in part from https://github.com/neovim/nvim-lspconfig#suggested-configuration
-				-- Use an on_attach function to only map the following keys after the
-				-- language server attaches to the current buffer
-				local on_attach = function(client, bufnr)
-					local map = vim.keymap.set
-
-					-- Enable completion triggered by <c-x><c-o>
-					vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-					-- Mappings.
-					-- See `:help vim.lsp.*` for documentation on any of the below functions
-					map('n', '<Leader>aa', vim.lsp.buf.code_action, { buffer = bufnr, silent = true })
-					map('n', '<Leader>ad', vim.lsp.buf.type_definition, { buffer = bufnr, silent = true })
-					map('n', '<Leader>af', vim.lsp.buf.formatting, { buffer = bufnr, silent = true })
-					map('n', '<Leader>ar', vim.lsp.buf.rename, { buffer = bufnr, silent = true })
-					map('n', '<Leader>as', vim.lsp.buf.signature_help, { buffer = bufnr, silent = true })
-					map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, { buffer = bufnr, silent = true })
-					map('n', '<Leader>wl', function() return print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { buffer = bufnr, silent = true })
-					map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, { buffer = bufnr, silent = true })
-					map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, silent = true })
-					map('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, silent = true })
-					map('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, silent = true })
-					map('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, silent = true })
-				end
-
-				local opts = {
-					on_attach = on_attach,
-					flags = {
-						-- This will be the default in neovim 0.7+
-						debounce_text_changes = 150,
-					}
-				}
-
 				lspconfig.setup_handlers({
 					function(server)
-						require('lspconfig')[server].setup(opts)
+						require('lspconfig')[server].setup({})
 					end
 				})
 			end
