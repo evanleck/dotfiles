@@ -3,6 +3,7 @@ theme = "dracula"
 
 [editor]
 line-number = "absolute"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
