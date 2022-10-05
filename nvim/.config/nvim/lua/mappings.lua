@@ -37,11 +37,11 @@ api.nvim_create_autocmd('LspAttach', {
 		local buffer = args.buf
 
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
-		map('n', '<Leader>aa', vim.lsp.buf.code_action, { buffer = buffer, silent = true })
-		map('n', '<Leader>ad', vim.lsp.buf.type_definition, { buffer = buffer, silent = true })
-		map('n', '<Leader>af', vim.lsp.buf.formatting, { buffer = buffer, silent = true })
-		map('n', '<Leader>ar', vim.lsp.buf.rename, { buffer = buffer, silent = true })
-		map('n', '<Leader>as', vim.lsp.buf.signature_help, { buffer = buffer, silent = true })
+		map('n', '<Leader>ca', vim.lsp.buf.code_action, { buffer = buffer, silent = true })
+		map('n', '<Leader>cd', vim.lsp.buf.type_definition, { buffer = buffer, silent = true })
+		map('n', '<Leader>cf', vim.lsp.buf.formatting, { buffer = buffer, silent = true })
+		map('n', '<Leader>cr', vim.lsp.buf.rename, { buffer = buffer, silent = true })
+		map('n', '<Leader>cs', vim.lsp.buf.signature_help, { buffer = buffer, silent = true })
 		map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, { buffer = buffer, silent = true })
 		map('n', '<Leader>wl', function() return print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { buffer = buffer, silent = true })
 		map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, { buffer = buffer, silent = true })
