@@ -101,7 +101,3 @@ opt.splitright = true                  -- Split vertical windows right to the cu
 opt.synmaxcol = 500                    -- Only syntax highlight to the 500th column by default.
 opt.tabstop = 2                        -- The One True Tab
 opt.textwidth = 80                     -- Turns out I kinda like 80...
-
--- set wildignore=*.class,*.o,*~,*.pyc,.git,node_modules     -- Ignore certain files in tab-completion
--- set wildmenu                                              -- Show possible completions on command line
--- set wildmode=list:longest,full                            -- List all options and complete
