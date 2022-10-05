@@ -52,6 +52,12 @@ api.nvim_create_autocmd('LspAttach', {
 	end
 })
 
+-- Toggles
+map('n', '<Leader>ts', function()
+	vim.opt.spell = not(vim.opt.spell:get())
+	vim.notify("spell: " .. tostring(vim.opt.spell:get()))
+end)
+
 -- Editing
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 map('n', '<Leader>do', vim.diagnostic.open_float, { silent = true })
