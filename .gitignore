@@ -1,8 +1,3 @@
-vim/.vim/backup
-vim/.vim/pack
-vim/.vim/swap
-vim/.vim/undo
-
 ssh/.ssh
 !ssh/.ssh/config
 
