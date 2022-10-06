@@ -1,9 +1,0 @@
-[Unit]
-Description=Prune data from the restic repository weekly
-
-[Timer]
-OnCalendar=weekly
-Persistent=true
-
-[Install]
-WantedBy=timers.target
