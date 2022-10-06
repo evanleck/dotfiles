@@ -180,16 +180,10 @@ require('packer').startup({
 		use {
 			'echasnovski/mini.nvim',
 			config = function()
-				local sessions = vim.fn.stdpath('data')..'/sessions'
-				if vim.fn.empty(vim.fn.glob(sessions)) > 0 then
-					vim.fn.system({ 'mkdir', '-p', sessions })
-				end
-
 				require('mini.bufremove').setup()
 				require('mini.comment').setup()
 				require('mini.completion').setup()
 				require('mini.pairs').setup()
-				require('mini.sessions').setup({ directory = sessions })
 				require('mini.surround').setup()
 			end
 		}

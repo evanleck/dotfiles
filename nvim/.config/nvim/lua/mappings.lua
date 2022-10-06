@@ -118,9 +118,8 @@ map('n', '<Leader>co', ':copen<CR>', { silent = true })
 map('n', '<Leader>cp', ':cp<CR>', { silent = true })
 
 -- Sessions
-map('n', '<Leader>sd', function() return require('mini.sessions').select('delete') end, { silent = true })
-map('n', '<Leader>so', function() return require('mini.sessions').select('read') end, { silent = true })
-map('n', '<Leader>ss', function() return require('mini.sessions').select('write') end, { silent = true })
+map('n', '<Leader>ss', ':mksession!<CR>')
+map('n', '<Leader>so', ':source Session.vim<CR>')
 
 -- Splits and windows.
 map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })

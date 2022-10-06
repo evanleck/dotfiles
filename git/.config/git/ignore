@@ -55,3 +55,6 @@ Thumbs.db
 # Syncthing
 .stfolder
 .stignore
+
+# Vim sessions
+Session.vim
