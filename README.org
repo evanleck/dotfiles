@@ -1,5 +1,0 @@
-* ~/.dotfiles
-
-These are my dotfiles. [[https://github.com/alexpearce/dotfiles][There]] [[https://github.com/garybernhardt/dotfiles][are]] [[https://github.com/jessfraz/dotfiles][many]] [[https://github.com/xero/dotfiles][like]] them, but these are mine.
-
-Powered by [[https://www.gnu.org/software/stow/][stow]] and inspired in great part by "[[https://alexpearce.me/2016/02/managing-dotfiles-with-stow/][Managing dotfiles with GNU stow]]."
