@@ -1,80 +1,65 @@
 [user]
-  name = Evan Lecklider
-  email = evan@lecklider.com
+	name = Evan Lecklider
+	email = evan@lecklider.com
+
 [core]
-  excludesfile = ~/.config/git/ignore
-  quotepath = false
-  autocrlf = false
-  pager = delta
-  editor = nvim
+	autocrlf = false
+	editor = nvim
+	excludesfile = ~/.config/git/ignore
+	pager = delta
+	quotepath = false
+
 [alias]
-  b = branch
-  c = commit
-  co = checkout
-  d = diff
-  down = pull --rebase
-  ds = diff --staged
-  dt = difftool
-  ls = log --pretty=oneline --abbrev-commit --graph --decorate
-  prune = fetch --prune
-  s = status -sb
-  sha = rev-parse HEAD
-  staged = diff --staged
-  wc = whatchanged -p
-  today = log --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  recent = log -10 --graph --pretty=oneline --abbrev-commit --date=relative
-  week = log --since='7 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  twoweeks = log --since='14 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
-[color]
-  ui = auto
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+	b = branch
+	branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+	c = commit
+	co = checkout
+	d = diff
+	ds = diff --staged
+	ls = log --pretty=oneline --abbrev-commit --graph --decorate
+	recent = log -10 --graph --pretty=oneline --abbrev-commit --date=relative
+	s = status -sb
+	today = log --since='1 day ago' --graph --pretty=oneline --abbrev-commit --date=relative
+	twoweeks = log --since='14 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
+	wc = whatchanged -p
+	week = log --since='7 days ago' --graph --pretty=oneline --abbrev-commit --date=relative
+
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
+
+[add.interactive]
+	useBuiltin = false
+
 [delta]
-  theme = Dracula
-[color "diff"]
-  whitespace = red reverse
-  plain = black
-  meta = 11
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  commit = yellow bold
-[color "status"]
-  added = yellow # files deleted with "git rm" are this color too
-  changed = green # deleted items NOT done with "git rm" are this color too
-  untracked = cyan
+	theme = Catppuccin-mocha
+
 [mergetool]
-  keepBackup = true
-  prompt = false
+	keepBackup = true
+	prompt = false
+
 [status]
-  showUntrackedFiles = all
+	showUntrackedFiles = all
+
 [push]
-  default = simple
-  followTags = true
-[merge]
-  conflictstyle = diff3
-[difftool]
-  prompt = false
-[filter "media"]
-  required = true
-  clean = git media clean %f
-  smudge = git media smudge %f
-[filter "lfs"]
-  smudge = git-lfs smudge -- %f
-  required = true
-  clean = git-lfs clean -- %f
-  process = git-lfs filter-process
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-[init]
-  defaultBranch = main
+	default = simple
+	followTags = true
+
 [pull]
-  ff = only
+	ff = only
+
+[merge]
+	conflictstyle = diff3
+
+[filter "media"]
+	clean = git media clean %f
+	required = true
+	smudge = git media smudge %f
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+
+[init]
+	defaultBranch = main
