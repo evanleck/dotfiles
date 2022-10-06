@@ -1,5 +1,0 @@
-(?d).DS_Store
-(?d)/vim/.vim/backup
-(?d)/vim/.vim/pack
-(?d)/vim/.vim/swap
-(?d)/vim/.vim/undo
