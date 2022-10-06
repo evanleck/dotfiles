@@ -107,30 +107,39 @@ require('packer').startup({
 				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 			},
 			config = function()
-				require('telescope').setup {
+				local telescope = require('telescope')
+				local actions = require('telescope.actions')
+				local config = require('telescope.config')
+
+				-- Clone the default Telescope configuration
+				local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
+
+				-- Search in hidden files but not git.
+				table.insert(vimgrep_arguments, '--hidden')
+				table.insert(vimgrep_arguments, '--trim')
+				table.insert(vimgrep_arguments, '--glob')
+				table.insert(vimgrep_arguments, '!.git/*')
+
+				telescope.setup({
 					defaults = {
-						file_ignore_patterns = { 'node_modules', '.git' },
+						file_ignore_patterns = { 'node_modules' },
 						layout_config = {
 							center = {
-								prompt_position = "bottom"
+								prompt_position = 'bottom'
 							}
 						},
 						layout_strategy = 'center',
 						mappings = {
 							i = {
-								['<esc>'] = require('telescope.actions').close
+								['<esc>'] = actions.close
 							},
 						},
 						preview = false, -- no previews
-						vimgrep_arguments = {
-							'rg',
-							'--color=never',
-							'--no-heading',
-							'--with-filename',
-							'--line-number',
-							'--column',
-							'--smart-case',
-							'--hidden'
+						vimgrep_arguments = vimgrep_arguments,
+					},
+					pickers = {
+						find_files = {
+							find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },
 						},
 					},
 					extensions = {
@@ -138,15 +147,10 @@ require('packer').startup({
 							fuzzy = true,                    -- false will only do exact matching
 							override_generic_sorter = true,  -- override the generic sorter
 							override_file_sorter = true,     -- override the file sorter
-							case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+							case_mode = 'smart_case',
 						}
-					},
-					pickers = {
-						find_files = {
-							find_command = { 'fd', '--type', 'file', '--hidden', '--exclude', '.git', '--strip-cwd-prefix' }
-						},
 					}
-				}
+				})
 
 				require('telescope').load_extension('fzf')
 			end

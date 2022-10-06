@@ -66,9 +66,17 @@ map('n', '[d', vim.diagnostic.goto_prev, { silent = true })
 map('n', ']d', vim.diagnostic.goto_next, { silent = true })
 
 -- Finding
-map('n', '<Leader>/', function() return require('telescope.builtin').live_grep() end)
-map('n', '<Leader><Leader>', function() return require('telescope.builtin').find_files({ hidden = true }) end)
-map('n', '<Leader>sb', function() return require('telescope.builtin').current_buffer_fuzzy_find() end)
+local telescope = require('telescope.builtin')
+
+map('n', '<Leader>/', telescope.live_grep)
+map('n', '<Leader><Leader>', telescope.find_files)
+map('n', '<Leader>sb', telescope.current_buffer_fuzzy_find)
+map('n', "<Leader>'", telescope.resume)
+
+-- Buffers
+map('n', '<Leader>,', telescope.buffers)
+map('n', '<Leader>bb', telescope.buffers)
+map('n', '<Leader>bd', function() return require('mini.bufremove').delete() end, { silent = true })
 
 -- Updates
 map('n', '<Leader>up', function() return require('packer').sync() end)
@@ -113,11 +121,6 @@ map('n', '<Leader>cp', ':cp<CR>', { silent = true })
 map('n', '<Leader>sd', function() return require('mini.sessions').select('delete') end, { silent = true })
 map('n', '<Leader>so', function() return require('mini.sessions').select('read') end, { silent = true })
 map('n', '<Leader>ss', function() return require('mini.sessions').select('write') end, { silent = true })
-
--- Buffers
-map('n', '<Leader>,', function() return require('telescope.builtin').buffers() end)
-map('n', '<Leader>bb', function() return require('telescope.builtin').buffers() end)
-map('n', '<Leader>bd', function() return require('mini.bufremove').delete() end, { silent = true })
 
 -- Splits and windows.
 map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })
