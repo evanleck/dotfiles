@@ -79,6 +79,15 @@ map('n', '<Leader>fm', ':Rename<Space>')
 map('n', '<Leader>fD', ':Delete<CR>', { silent = true })
 map('n', '<Leader>fs', ':w<CR>', { silent = true })
 
+-- Completion
+map('i', '<Tab>', function()
+	return vim.fn.pumvisible() == 1 and '<C-n>' or '<Tab>'
+end, { expr = true })
+
+map('i', '<S-Tab>', function()
+	return vim.fn.pumvisible() == 1 and '<C-p>' or '<S-Tab>'
+end, { expr = true })
+
 -- Whitespace
 -- Largely aped from
 -- https://github.com/monkoose/neovim-setup/blob/0725b1ef821c58d02fba0fa3c688f0ebc69ecca8/lua/custom/unimpaired.lua#L1-L20
