@@ -184,7 +184,11 @@ require('packer').startup({
 				require('mini.comment').setup()
 				require('mini.completion').setup()
 				require('mini.pairs').setup()
-				require('mini.surround').setup()
+				require('mini.surround').setup({
+					mappings = {
+						replace = 'sc'
+					}
+				})
 			end
 		}
 
