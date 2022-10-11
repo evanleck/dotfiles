@@ -1,5 +1,5 @@
 # https://github.com/helix-editor/helix/blob/master/book/src/configuration.md
-theme = "dracula"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "absolute"
