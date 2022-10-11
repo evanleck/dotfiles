@@ -13,6 +13,14 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[editor.whitespace.render]
+newline = "none"
+space = "none"
+tab = "all"
+
+[editor.whitespace.characters]
+tab = "›"
+
 [keys.normal]
 "$" = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
