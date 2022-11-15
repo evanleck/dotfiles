@@ -1,4 +1,4 @@
-function upandup --description "Update Homebrew, asdf, and Doom"
+function upandup --description "Update Homebrew, asdf, fisher, and Doom"
 	# Homebrew
 	if type -q brew
 		brew update
