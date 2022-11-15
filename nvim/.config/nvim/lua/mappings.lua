@@ -23,6 +23,9 @@ map('n', '<esc><esc>', ':nohlsearch<cr>', { silent = true })
 -- File explorer.
 map('n', '<Leader>op', ':NvimTreeToggle<CR>')
 
+-- Mason
+map('n', '<Leader>om', ':Mason<CR>')
+
 -- Clipboard
 map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.default() end)
 
