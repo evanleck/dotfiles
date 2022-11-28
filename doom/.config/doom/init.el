@@ -47,11 +47,11 @@
 	;;tabs              ; a tab bar for Emacs
 	treemacs          ; a project drawer, like neotree but cooler
 	;;unicode           ; extended unicode support for various languages
-	(vc-gutter +pretty)         ; vcs diff in the fringe
+	(vc-gutter +pretty) ; vcs diff in the fringe
 	vi-tilde-fringe   ; fringe tildes to mark beyond EOB
 	;;window-select     ; visually switch windows
 	workspaces        ; tab emulation, persistence & separate workspaces
-	zen               ; distraction-free coding or writing
+	;;zen               ; distraction-free coding or writing
 
 	:editor
 	(evil +everywhere); come to the dark side, we have cookies
@@ -79,11 +79,11 @@
 	;;eshell            ; the elisp shell that works everywhere
 	;;shell             ; simple shell REPL for Emacs
 	;;term              ; basic terminal emulator for Emacs
-	vterm             ; the best terminal emulation in Emacs
+	;;vterm             ; the best terminal emulation in Emacs
 
 	:checkers
 	syntax              ; tasing you for every semicolon you forget
-	(spell +flyspell +hunspell) ; tasing you for misspelling mispelling
+	;;(spell +flyspell) ; tasing you for misspelling mispelling
 	;;grammar           ; tasing grammar mistake every you make
 
 	:tools
@@ -106,7 +106,7 @@
 	;;rgb               ; creating color strings
 	simpleclip
 	;;taskrunner        ; taskrunner for all your projects
-	terraform         ; infrastructure as code
+	;;terraform         ; infrastructure as code
 	;;tmux              ; an API for interacting with tmux
 	tree-sitter       ; syntax and parsing, sitting in a tree...
 	;;upload            ; map local to remote projects via ssh/ftp
@@ -127,7 +127,7 @@
 	;;data              ; config/data formats
 	;;(dart +flutter)   ; paint ui and not much else
 	;;dhall
-	(elixir +lsp)            ; erlang done right
+	;;elixir            ; erlang done right
 	;;elm               ; care for a cup of TEA?
 	emacs-lisp        ; drown in parentheses
 	;;erlang            ; an elegant language for a more civilized age
@@ -156,7 +156,7 @@
 	;;nim               ; python + lisp at the speed of c
 	;;nix               ; I hereby declare "nix geht mehr!"
 	;;ocaml             ; an objective camel
-	(org +dragndrop +pandoc)               ; organize your plain life in plain text
+	org               ; organize your plain life in plain text
 	;;php               ; perl's insecure younger brother
 	;;plantuml          ; diagrams for confusing people more
 	;;purescript        ; javascript, but functional
@@ -167,7 +167,7 @@
 	;;rest              ; Emacs as a REST client
 	;;rst               ; ReST in peace
 	(ruby +lsp)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-	;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+	;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
 	;;scala             ; java, but good
 	;;(scheme +guile)   ; a fully conniving family of lisps
 	sh                ; she sells {ba,z,fi}sh shells on the C xor
