@@ -18,16 +18,10 @@ local backup = fn.stdpath('cache') .. '/backup'
 local swap = fn.stdpath('cache') .. '/swap'
 local undo = fn.stdpath('cache') .. '/undo'
 
-if fn.empty(fn.glob(backup)) > 0 then
-	fn.system({ 'mkdir', '-p', backup })
-end
-
-if fn.empty(fn.glob(swap)) > 0 then
-	fn.system({ 'mkdir', '-p', swap })
-end
-
-if fn.empty(fn.glob(undo)) > 0 then
-	fn.system({ 'mkdir', '-p', undo })
+for _, directory in ipairs({ backup, swap, undo }) do
+	if fn.isdirectory(directory) == 0 then
+		fn.mkdir(directory)
+	end
 end
 
 opt.backupdir = backup .. '//'
