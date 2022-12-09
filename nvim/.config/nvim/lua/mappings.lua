@@ -148,4 +148,4 @@ map('n', '<C-k>', ':wincmd k<CR>', { silent = true })
 map('n', '<C-l>', ':wincmd l<CR>', { silent = true })
 
 -- Visual stuff
-map('v', '<Leader>s', ':sort<CR>', { silent = true })
+map('v', '<Leader>s', ':sort i<CR>', { silent = true })
