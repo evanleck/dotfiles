@@ -1,4 +1,5 @@
 # https://github.com/helix-editor/helix/blob/master/book/src/configuration.md
+# https://github.com/langston-barrett/spacelix/blob/main/src/spacelix.toml
 theme = "catppuccin_mocha"
 
 [editor]
@@ -24,15 +25,38 @@ tab = "›"
 [keys.normal]
 "$" = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
+A-x = "command_palette"
 C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+C-r = "redo"
 
 [keys.normal.space]
 "space" = "file_picker"
 "," = "buffer_picker"
 
-# [keys.normal.space.b]
-# b = "buffer_picker"
-# d = "buffer_close"
+[keys.normal.space.q]
+a = ":quit-all"
+q = ":quit"
+
+# Buffers
+[keys.normal.space.b]
+b = "buffer_picker"
+d = ":buffer-close"
+D = ":buffer-close!"
+n = "goto_next_buffer"
+p = "goto_previous_buffer"
+
+# Jumplist
+[keys.normal.space.j]
+"b" = "jump_backward"
+"f" = "jump_forward"
+"j" = "jumplist_picker"
+"s" = "save_selection"
+
+[keys.select]
+"$" = "goto_line_end"
+
+[keys.select.g]
+"q" = ":reflow"
