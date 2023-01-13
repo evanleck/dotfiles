@@ -31,6 +31,7 @@ map('n', '<Leader>oc', function() require('telescope').extensions.neoclip.defaul
 
 -- Quitting
 map('n', '<Leader>qa', ':qa<CR>', { silent = true })
+map('n', '<Leader>qq', ':q<CR>', { silent = true })
 
 -- LSP
 api.nvim_create_augroup('lsp-keymap', { clear = true })
