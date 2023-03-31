@@ -3,8 +3,8 @@
 theme = "catppuccin_mocha"
 
 [editor]
-line-number = "absolute"
 color-modes = true
+line-number = "absolute"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -13,6 +13,9 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "version-control"]
 
 [editor.whitespace.render]
 newline = "none"
