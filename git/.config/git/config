@@ -31,7 +31,7 @@
 	useBuiltin = false
 
 [delta]
-	theme = Catppuccin-mocha
+	syntax-theme = Catppuccin-mocha
 
 [mergetool]
 	keepBackup = true
