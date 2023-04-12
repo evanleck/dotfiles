@@ -43,7 +43,7 @@ api.nvim_create_autocmd('LspAttach', {
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		map('n', '<Leader>ca', vim.lsp.buf.code_action, { buffer = buffer, silent = true })
 		map('n', '<Leader>cd', vim.lsp.buf.type_definition, { buffer = buffer, silent = true })
-		map('n', '<Leader>cf', vim.lsp.buf.formatting, { buffer = buffer, silent = true })
+		map('n', '<Leader>cf', vim.lsp.buf.format, { buffer = buffer, silent = true })
 		map('n', '<Leader>cr', vim.lsp.buf.rename, { buffer = buffer, silent = true })
 		map('n', '<Leader>cs', vim.lsp.buf.signature_help, { buffer = buffer, silent = true })
 		map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, { buffer = buffer, silent = true })
