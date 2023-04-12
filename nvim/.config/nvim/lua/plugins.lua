@@ -187,7 +187,6 @@ require('packer').startup({
 		use 'axvr/org.vim'
 
 		-- Editor
-		use 'editorconfig/editorconfig-vim'
 		use 'farmergreg/vim-lastplace'
 		use 'tpope/vim-eunuch'
 
