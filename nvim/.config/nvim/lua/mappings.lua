@@ -88,7 +88,7 @@ map('n', '<Leader>ut', ':TSUpdate<CR>', { silent = true })
 
 -- Files
 map('n', '<Leader>fm', ':Rename<Space>')
-map('n', '<Leader>fD', ':Delete<CR>', { silent = true })
+map('n', '<Leader>fD', ':Delete!<CR>', { silent = true })
 map('n', '<Leader>fs', ':w<CR>', { silent = true })
 
 -- Completion
