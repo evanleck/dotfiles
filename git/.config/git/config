@@ -4,7 +4,6 @@
 
 [core]
 	autocrlf = false
-	editor = nvim
 	excludesfile = ~/.config/git/ignore
 	pager = delta
 	quotepath = false
