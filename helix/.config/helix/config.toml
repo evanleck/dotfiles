@@ -61,5 +61,5 @@ p = "goto_previous_buffer"
 [keys.select]
 "$" = "goto_line_end"
 
-[keys.select.g]
+[keys.normal.g]
 "q" = ":reflow"
