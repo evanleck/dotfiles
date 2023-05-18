@@ -1,3 +1,3 @@
 function ls --wraps exa
-	command exa $argv
+	command exa --header --long --git --all $argv
 end
