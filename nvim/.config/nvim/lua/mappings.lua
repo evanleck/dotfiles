@@ -75,6 +75,7 @@ local telescope = require('telescope.builtin')
 map('n', '<Leader>/', telescope.live_grep)
 map('n', '<Leader><Leader>', telescope.find_files)
 map('n', '<Leader>sb', telescope.current_buffer_fuzzy_find)
+map('n', '<Leader>sf', telescope.lsp_workspace_symbols)
 map('n', "<Leader>'", telescope.resume)
 
 -- Buffers
