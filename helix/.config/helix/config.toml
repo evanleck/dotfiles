@@ -3,7 +3,7 @@
 theme = "catppuccin_mocha"
 
 [editor]
-bufferline = "always"
+bufferline = "never" # turns out this is more distracting than I expected
 color-modes = true
 line-number = "absolute"
 scrolloff = 2
