@@ -1,3 +1,5 @@
-if test -d ~/.emacs.d/bin
-	fish_add_path ~/.emacs.d/bin
+set --local doom_path ~/.emacs.d/bin
+
+if test -d $doom_path
+	fish_add_path $doom_path
 end

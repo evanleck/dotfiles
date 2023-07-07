@@ -1,3 +1,5 @@
-if test -d "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
-	fish_add_path "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+set --local sublime_path "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+
+if test -d $sublime_path
+	fish_add_path $sublime_path
 end

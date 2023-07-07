@@ -1,4 +1,6 @@
 # Pull in asdf.
-if type -q brew and test -f (brew --prefix asdf)/libexec/asdf.fish
-	source (brew --prefix asdf)/libexec/asdf.fish
+set --local asdf_fish (brew --prefix asdf)/libexec/asdf.fish
+
+if type -q brew and test -f $asdf_fish
+	source $asdf_fish
 end
