@@ -84,7 +84,7 @@ map('n', '<Leader>bb', telescope.buffers)
 map('n', '<Leader>bd', function() return require('mini.bufremove').delete() end, { silent = true })
 
 -- Updates
-map('n', '<Leader>up', function() return require('packer').sync() end)
+map('n', '<Leader>up', function() return require('lazy').sync() end)
 map('n', '<Leader>ut', ':TSUpdate<CR>', { silent = true })
 
 -- Files

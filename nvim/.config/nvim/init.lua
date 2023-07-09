@@ -21,6 +21,6 @@ api.nvim_create_autocmd('ColorScheme', {
 	command = 'hi clear CursorLine'
 })
 
-require('plugins')
 require('options')
+require('plugins')
 require('mappings')

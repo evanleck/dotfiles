@@ -1,261 +1,245 @@
--- Bootstrap packer.nvim
-local fn = vim.fn
+-- Bootstrap lazy.nvim
+--   https://github.com/folke/lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
--- Bootstrap packer.nvim if necessary.
---   https://github.com/wbthomason/packer.nvim#bootstrapping
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-local packer_bootstrap = false
-
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-	vim.cmd [[packadd packer.nvim]]
-	packer_bootstrap = true
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({ 'git', 'clone', '--filter=blob:none', 'https://github.com/folke/lazy.nvim.git', '--branch=stable', lazypath, })
 end
 
+vim.opt.rtp:prepend(lazypath)
+
 -- Plugins
-require('packer').startup({
-	function(use)
-		-- Manage packer with packer
-		use { 'wbthomason/packer.nvim' }
+require('lazy').setup({
+	-- LSP
+	{
+		'williamboman/mason.nvim',
+		dependencies = {
+			'neovim/nvim-lspconfig',
+			'williamboman/mason-lspconfig.nvim'
+		},
+		config = function()
+			require('mason').setup()
+			local lspconfig = require('mason-lspconfig')
+			lspconfig.setup()
+			lspconfig.setup_handlers({
+				function(server)
+					local options = {}
 
-		-- LSP
-		use {
-			'williamboman/mason.nvim',
-			requires = {
-				'neovim/nvim-lspconfig',
-				'williamboman/mason-lspconfig.nvim'
-			},
-			config = function()
-				require('mason').setup()
-				local lspconfig = require('mason-lspconfig')
-				lspconfig.setup()
-				lspconfig.setup_handlers({
-					function(server)
-						local options = {}
-
-						-- This behaves almost exactly like the base configuration but omits
-						-- ".git" to prevent mis-activating in e.g. a Deno project.
-						--
-						-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/tsserver.lua
-						if server == 'tsserver' then
-							options = {
-								root_dir = function(fname)
-									return require('lspconfig.util').root_pattern('tsconfig.json')(fname)
-										or require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')(fname)
-								end
-							}
-						end
-
-						require('lspconfig')[server].setup(options)
+					-- This behaves almost exactly like the base configuration but omits
+					-- ".git" to prevent mis-activating in e.g. a Deno project.
+					--
+					-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/tsserver.lua
+					if server == 'tsserver' then
+						options = {
+							root_dir = function(fname)
+								return require('lspconfig.util').root_pattern('tsconfig.json')(fname)
+									or require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')(fname)
+							end
+						}
 					end
-				})
-			end
-		}
 
-		-- Treesitter
-		use {
-			'nvim-treesitter/nvim-treesitter',
-			requires = {
-				'andymass/vim-matchup',
-				'RRethy/nvim-treesitter-endwise'
-			},
-			config = function()
-				require('nvim-treesitter.configs').setup {
-					ensure_installed = 'all',
-					ignore_install = { 'phpdoc' },
-					highlight = {
-						enable = true
-					},
-					indent = {
-						enable = true
-					},
-					endwise = {
-						enable = true,
-					},
-					matchup = {
-						enable = true
-					}
-				}
-			end
-		}
+					require('lspconfig')[server].setup(options)
+				end
+			})
+		end
+	},
 
-		-- Treesitter context
-		use {
-			'lewis6991/nvim-treesitter-context',
-			requires = { 'nvim-treesitter/nvim-treesitter' },
-			config = function()
-				require('treesitter-context').setup {
+	-- Treesitter
+	{
+		'nvim-treesitter/nvim-treesitter',
+		dependencies = {
+			'andymass/vim-matchup',
+			'RRethy/nvim-treesitter-endwise',
+			{
+				'nvim-treesitter/nvim-treesitter-context',
+				opts = {
 					enable = true,
 					throttle = true,
 				}
-			end
-		}
-
-		-- File tree
-		use {
-			'kyazdani42/nvim-tree.lua',
-			config = function()
-				require('nvim-tree').setup({
-					view = {
-						side = 'left'
-					},
-					renderer = {
-						icons = {
-							show = {
-								git = false,
-								folder = false,
-								file = false,
-								folder_arrow = false,
-							}
-						}
-					}
-				})
-			end
-		}
-
-		-- Telescope
-		use {
-			'nvim-telescope/telescope.nvim',
-			requires = {
-				{ 'nvim-lua/plenary.nvim' },
-				{ 'nvim-lua/popup.nvim' },
-				{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+			}
+		},
+		cmd = { 'TSUpdate' },
+		event = { 'BufReadPost', 'BufNewFile' },
+		opts = {
+			ensure_installed = 'all',
+			ignore_install = { 'phpdoc' },
+			highlight = {
+				enable = true
 			},
-			config = function()
-				local telescope = require('telescope')
-				local actions = require('telescope.actions')
-				local config = require('telescope.config')
+			indent = {
+				enable = true
+			},
+			endwise = {
+				enable = true,
+			},
+			matchup = {
+				enable = true
+			}
+		}
+	},
 
-				-- Clone the default Telescope configuration
-				local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
-
-				-- Search in hidden files but not git.
-				table.insert(vimgrep_arguments, '--hidden')
-				table.insert(vimgrep_arguments, '--trim')
-				table.insert(vimgrep_arguments, '--glob')
-				table.insert(vimgrep_arguments, '!.git/*')
-
-				telescope.setup({
-					defaults = {
-						file_ignore_patterns = { 'node_modules' },
-						layout_config = {
-							center = {
-								prompt_position = 'bottom'
-							}
-						},
-						layout_strategy = 'center',
-						mappings = {
-							i = {
-								['<esc>'] = actions.close
-							},
-						},
-						preview = false, -- no previews
-						vimgrep_arguments = vimgrep_arguments,
-					},
-					pickers = {
-						find_files = {
-							find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },
-						},
-					},
-					extensions = {
-						fzf = {
-							fuzzy = true,                    -- false will only do exact matching
-							override_generic_sorter = true,  -- override the generic sorter
-							override_file_sorter = true,     -- override the file sorter
-							case_mode = 'smart_case',
-						}
+	-- File tree
+	{
+		'nvim-tree/nvim-tree.lua',
+		cmd = 'NvimTreeToggle',
+		opts = {
+			view = {
+				side = 'left'
+			},
+			renderer = {
+				icons = {
+					show = {
+						git = false,
+						folder = false,
+						file = false,
+						folder_arrow = false,
 					}
-				})
-
-				require('telescope').load_extension('fzf')
-			end
+				}
+			}
 		}
+	},
 
-		-- Dress up some vim functions
-		use { 'stevearc/dressing.nvim' }
+	-- Telescope
+	{
+		'nvim-telescope/telescope.nvim',
+		dependencies = {
+			{ 'nvim-lua/plenary.nvim', lazy = true },
+			{ 'nvim-lua/popup.nvim', lazy = true },
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', lazy = true }
+		},
+		lazy = true,
+		config = function()
+			local telescope = require('telescope')
+			local actions = require('telescope.actions')
+			local config = require('telescope.config')
 
-		-- Git signs
-		use {
-			'lewis6991/gitsigns.nvim',
-			requires = { 'nvim-lua/plenary.nvim' },
-			config = function()
-				require('gitsigns').setup()
-			end
-		}
+			-- Clone the default Telescope configuration
+			local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
 
-		-- Org mode
-		use 'axvr/org.vim'
+			-- Search in hidden files but not git.
+			table.insert(vimgrep_arguments, '--hidden')
+			table.insert(vimgrep_arguments, '--trim')
+			table.insert(vimgrep_arguments, '--glob')
+			table.insert(vimgrep_arguments, '!.git/*')
 
-		-- Editor
-		use 'farmergreg/vim-lastplace'
-		use 'tpope/vim-eunuch'
-
-		-- All kinds of good stuff.
-		use {
-			'echasnovski/mini.nvim',
-			config = function()
-				require('mini.bufremove').setup()
-				require('mini.comment').setup()
-				require('mini.completion').setup()
-				require('mini.pairs').setup()
-				require('mini.surround').setup({
+			telescope.setup({
+				defaults = {
+					file_ignore_patterns = { 'node_modules' },
+					layout_config = {
+						center = {
+							prompt_position = 'bottom'
+						}
+					},
+					layout_strategy = 'center',
 					mappings = {
-						replace = 'sc'
+						i = {
+							['<esc>'] = actions.close
+						},
+					},
+					preview = false, -- no previews
+					vimgrep_arguments = vimgrep_arguments,
+				},
+				pickers = {
+					find_files = {
+						find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },
+					},
+				},
+				extensions = {
+					fzf = {
+						fuzzy = true,                    -- false will only do exact matching
+						override_generic_sorter = true,  -- override the generic sorter
+						override_file_sorter = true,     -- override the file sorter
+						case_mode = 'smart_case',
 					}
-				})
-			end
-		}
+				}
+			})
 
-		-- Colorscheme
-		use {
-			'catppuccin/nvim',
-			as = 'catppuccin',
-			config = function()
-				require('catppuccin').setup({
-					flavour = 'mocha'
-				})
-
-				vim.cmd.colorscheme('catppuccin')
-			end
-		}
-
-		-- Status line
-		use {
-			'nvim-lualine/lualine.nvim',
-			config = function()
-				require('lualine').setup({
-					options = {
-						component_separators = '',
-						icons_enabled = false,
-						section_separators = '',
-						theme = 'catppuccin'
-					}
-				})
-			end
-		}
-
-		-- Clipboard management
-		use {
-			'AckslD/nvim-neoclip.lua',
-			requires = {
-				{ 'kkharji/sqlite.lua', module = 'sqlite' },
-				{ 'nvim-telescope/telescope.nvim' }
-			},
-			config = function()
-				require('neoclip').setup({
-					enable_persistent_history = true
-				})
-			end
-		}
-
-		-- Sync if we're bootstrapping.
-		if packer_bootstrap then
-			require('packer').sync()
+			require('telescope').load_extension('fzf')
 		end
-	end,
-	config = {
-		display = {
-			open_fn = require('packer.util').float,
+	},
+
+	-- Dress up some vim functions
+	'stevearc/dressing.nvim',
+
+	-- Git signs
+	{
+		'lewis6991/gitsigns.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim', lazy = true },
+		event = { 'BufReadPost', 'BufNewFile' },
+		config = true
+	},
+
+	-- Org mode
+	'axvr/org.vim',
+
+	-- Editor
+	'farmergreg/vim-lastplace',
+	'tpope/vim-eunuch',
+
+	-- All kinds of good stuff.
+	{
+		'echasnovski/mini.nvim',
+		event = { 'BufReadPost', 'BufNewFile' },
+		config = function()
+			require('mini.bufremove').setup()
+			require('mini.comment').setup()
+			require('mini.completion').setup()
+			require('mini.pairs').setup()
+			require('mini.surround').setup({
+				mappings = {
+					replace = 'sc'
+				}
+			})
+		end
+	},
+
+	-- Colorscheme
+	{
+		'catppuccin/nvim',
+		name = 'catppuccin',
+		lazy = false,
+		priority = 1000,
+		opts = {
+			flavour = 'mocha',
+			integrations = {
+				gitsigns = true,
+				lualine = true,
+				mason = true,
+				mini = true,
+				nvimtree = true,
+				treesitter_context = true,
+				treesitter = true,
+				telescope = true
+			}
+		},
+		config = function()
+			vim.cmd.colorscheme('catppuccin')
+		end
+	},
+
+	-- Status line
+	{
+		'nvim-lualine/lualine.nvim',
+		opts = {
+			options = {
+				component_separators = '',
+				icons_enabled = false,
+				section_separators = '',
+				theme = 'catppuccin'
+			}
+		}
+	},
+
+	-- Clipboard management
+	{
+		'AckslD/nvim-neoclip.lua',
+		dependencies = {
+			{ 'kkharji/sqlite.lua', lazy = true },
+			{ 'nvim-telescope/telescope.nvim', lazy = true }
+		},
+		event = { 'BufReadPost', 'BufNewFile' },
+		opts = {
+			enable_persistent_history = true
 		}
 	}
 })
