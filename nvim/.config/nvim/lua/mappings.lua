@@ -70,17 +70,15 @@ map('n', '[d', vim.diagnostic.goto_prev, { silent = true })
 map('n', ']d', vim.diagnostic.goto_next, { silent = true })
 
 -- Finding
-local telescope = require('telescope.builtin')
-
-map('n', '<Leader>/', telescope.live_grep)
-map('n', '<Leader><Leader>', telescope.find_files)
-map('n', '<Leader>sb', telescope.current_buffer_fuzzy_find)
-map('n', '<Leader>sf', telescope.lsp_workspace_symbols)
-map('n', "<Leader>'", telescope.resume)
+map('n', '<Leader>/', function() return require('telescope.builtin').live_grep() end)
+map('n', '<Leader><Leader>', function() return require('telescope.builtin').find_files() end)
+map('n', '<Leader>sb', function() return require('telescope.builtin').current_buffer_fuzzy_find() end)
+map('n', '<Leader>sf', function() return require('telescope.builtin').lsp_workspace_symbols() end)
+map('n', "<Leader>'", function() return require('telescope.builtin').resume() end)
 
 -- Buffers
-map('n', '<Leader>,', telescope.buffers)
-map('n', '<Leader>bb', telescope.buffers)
+map('n', '<Leader>,', function() return require('telescope.builtin').buffers() end)
+map('n', '<Leader>bb', function() return require('telescope.builtin').buffers() end)
 map('n', '<Leader>bd', function() return require('mini.bufremove').delete() end, { silent = true })
 
 -- Updates
