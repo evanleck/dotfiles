@@ -20,3 +20,10 @@ api.nvim_create_autocmd('ColorScheme', {
 	pattern = '*',
 	command = 'hi clear CursorLine'
 })
+
+api.nvim_create_augroup('terminal', { clear = true })
+api.nvim_create_autocmd('TermOpen', {
+	group = 'terminal',
+	pattern = '*',
+	command = 'startinsert'
+})

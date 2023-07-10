@@ -151,4 +151,5 @@ map('n', '<C-l>', ':wincmd l<CR>', { silent = true })
 map('v', '<Leader>s', ':sort i<CR>', { silent = true })
 
 -- Terminal
+map('n', '<Leader>ot', ':terminal<CR>', { desc = 'Open a terminal', silent = true })
 map('t', '<Esc>', '<C-\\><C-n>', { silent = true })
