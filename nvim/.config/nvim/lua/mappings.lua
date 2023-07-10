@@ -149,3 +149,6 @@ map('n', '<C-l>', ':wincmd l<CR>', { silent = true })
 
 -- Visual stuff
 map('v', '<Leader>s', ':sort i<CR>', { silent = true })
+
+-- Terminal
+map('t', '<Esc>', '<C-\\><C-n>', { silent = true })
