@@ -11,7 +11,9 @@ api.nvim_create_augroup('trim', { clear = true })
 api.nvim_create_autocmd('BufWritePre', {
 	group = 'trim',
 	pattern = '*',
-	command = 'call TrimTrailingEmptyLines()'
+	callback = function()
+		require('mini.trailspace').trim_last_lines()
+	end
 })
 
 api.nvim_create_augroup('colorscheme', { clear = true })

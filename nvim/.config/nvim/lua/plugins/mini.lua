@@ -11,5 +11,6 @@ return {
 				replace = 'sc'
 			}
 		})
+		require('mini.trailspace').setup()
 	end
 }
