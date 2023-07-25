@@ -141,12 +141,6 @@ map('n', '<Leader>wH', ':wincmd H<CR>', { silent = true })
 map('n', '<Leader>wJ', ':wincmd J<CR>', { silent = true })
 map('n', '<Leader>wK', ':wincmd K<CR>', { silent = true })
 
--- Get between splits quicker and easier.
-map('n', '<C-h>', ':wincmd h<CR>', { silent = true })
-map('n', '<C-j>', ':wincmd j<CR>', { silent = true })
-map('n', '<C-k>', ':wincmd k<CR>', { silent = true })
-map('n', '<C-l>', ':wincmd l<CR>', { silent = true })
-
 -- Visual stuff
 map('v', '<Leader>s', ':sort i<CR>', { silent = true })
 
