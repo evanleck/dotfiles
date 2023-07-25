@@ -121,8 +121,24 @@ map('n', '<Leader>co', ':copen<CR>', { silent = true })
 map('n', '<Leader>cp', ':cp<CR>', { silent = true })
 
 -- Sessions
-map('n', '<Leader>ss', ':mksession!<CR>')
-map('n', '<Leader>so', ':source Session.vim<CR>')
+map('n', '<Leader>ss', function()
+	local cwd = require('functions').cwd()
+	require('mini.sessions').write(cwd, { force = true })
+end)
+
+map('n', '<Leader>so', function()
+	local cwd = require('functions').cwd()
+	require('mini.sessions').read(cwd)
+end)
+
+map('n', '<Leader>sd', function()
+	local cwd = require('functions').cwd()
+	require('mini.sessions').delete(cwd, { force = true })
+end)
+
+map('n', '<Leader>s/', function()
+	require('mini.sessions').select()
+end)
 
 -- Splits and windows.
 map('n', '<Leader>w=', ':wincmd =<CR>', { silent = true })

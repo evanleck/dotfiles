@@ -6,11 +6,8 @@ return {
 		require('mini.comment').setup()
 		require('mini.completion').setup()
 		require('mini.pairs').setup()
-		require('mini.surround').setup({
-			mappings = {
-				replace = 'sc'
-			}
-		})
+		require('mini.sessions').setup()
+		require('mini.surround').setup({ mappings = { replace = 'sc' } })
 		require('mini.trailspace').setup()
 	end
 }
