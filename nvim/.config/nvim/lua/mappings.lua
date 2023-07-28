@@ -86,9 +86,9 @@ map('n', '<Leader>up', function() return require('lazy').sync() end)
 map('n', '<Leader>ut', ':TSUpdate<CR>', { silent = true })
 
 -- Files
-map('n', '<Leader>fm', ':Rename<Space>')
-map('n', '<Leader>fD', ':Delete!<CR>', { silent = true })
-map('n', '<Leader>fs', ':w<CR>', { silent = true })
+map('n', '<Leader>fm', function() return require('genghis').renameFile() end)
+map('n', '<Leader>fD', function() return require('genghis').trashFile() end, { silent = true })
+map('n', '<Leader>fs', function() return vim.cmd.write() end, { silent = true })
 
 -- Completion
 map('i', '<Tab>', function()

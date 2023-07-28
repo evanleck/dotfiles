@@ -1,4 +1,3 @@
 return {
-	'farmergreg/vim-lastplace',
-	'tpope/vim-eunuch'
+	'farmergreg/vim-lastplace'
 }
