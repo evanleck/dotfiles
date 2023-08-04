@@ -1,4 +1,3 @@
 return {
-	'jparise/vim-graphql',
-	ft = 'graphql'
+	'jparise/vim-graphql'
 }
