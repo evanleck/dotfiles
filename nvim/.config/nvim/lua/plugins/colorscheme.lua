@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	opts = {
-		flavour = 'mocha',
+		flavour = 'mocha', -- mocha by default
 		integrations = {
 			gitsigns = true,
 			lualine = true,
@@ -17,6 +17,6 @@ return {
 		}
 	},
 	config = function()
-		vim.cmd.colorscheme('catppuccin')
+		vim.cmd.colorscheme('catppuccin-mocha')
 	end
 }
