@@ -1,8 +1,4 @@
-ssh/.ssh
 !ssh/.ssh/config
-
 nvim/.config/nvim/lazy-lock.json
-
+ssh/.ssh
 tmux/.config/tmux/plugins/
-
-.luarc.json
