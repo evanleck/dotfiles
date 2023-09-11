@@ -1,3 +1,5 @@
-function gg --wraps lazygit
-	command lazygit $argz
+if type -q lazygit
+	function gg --wraps lazygit
+		command lazygit $argz
+	end
 end
