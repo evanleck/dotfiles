@@ -7,7 +7,7 @@ fi
 [ -f "/usr/local/bin/brew" ] && eval "$(/usr/local/bin/brew shellenv)"
 
 # ASDF via Homebrew
-[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && source "$(brew --prefix asdf)/libexec/asdf.sh"
+[ -f "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ] && source "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 
 # Doom
 [ -d "${HOME}/.emacs.d/bin" ] && export PATH="${HOME}/.emacs.d/bin:${PATH}"
