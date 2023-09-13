@@ -1,8 +1,10 @@
 # Load in Homebrew
-if test -f /opt/homebrew/bin/brew
-	eval (/opt/homebrew/bin/brew shellenv)
-else if test -f /usr/local/bin/brew
-	eval (/usr/local/bin/brew shellenv)
+set --local brews "/opt/homebrew/bin/brew" "/usr/local/bin/brew"
+
+for brew in $brews;
+	if test -f $brew; and test -x $brew
+		eval ($brew shellenv)
+	end
 end
 
 # Hush, homebrew
