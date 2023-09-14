@@ -1,7 +1,8 @@
-if type -q nvim
-	set -x EDITOR nvim
-else if type -q hx
-	set -x EDITOR hx
-else if type -q vim
-	set -x EDITOR vim
+set --local editors "nvim" "hx" "vim"
+
+for editor in $editors;
+	if type -q $editor
+		set -x EDITOR $editor
+		break
+	end
 end

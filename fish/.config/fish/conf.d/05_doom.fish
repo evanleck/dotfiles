@@ -1,5 +1,5 @@
-set --local doom_path "$HOME/.emacs.d/bin"
+set --local doom "$HOME/.emacs.d/bin"
 
-if test -d $doom_path
-	fish_add_path $doom_path
+if test -d $doom
+	fish_add_path $doom
 end
