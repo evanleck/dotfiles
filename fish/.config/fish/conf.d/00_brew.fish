@@ -3,7 +3,7 @@ set --local brews "/opt/homebrew/bin/brew" "/usr/local/bin/brew"
 
 for brew in $brews;
 	if test -f $brew; and test -x $brew
-		eval ($brew shellenv)
+		eval ($brew shellenv fish)
 	end
 end
 
