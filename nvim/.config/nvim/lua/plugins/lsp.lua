@@ -18,6 +18,8 @@ return {
 				-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/tsserver.lua
 				if server == 'tsserver' then
 					options = {
+						-- Disable single file support to help with e.g. deno projects.
+						single_file_support = false,
 						root_dir = function(fname)
 							return require('lspconfig.util').root_pattern('tsconfig.json')(fname)
 							or require('lspconfig.util').root_pattern('package.json', 'jsconfig.json')(fname)
