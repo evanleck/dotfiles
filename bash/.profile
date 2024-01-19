@@ -9,9 +9,6 @@ fi
 # ASDF via Homebrew
 [ -f "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ] && source "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 
-# Doom
-[ -d "${HOME}/.emacs.d/bin" ] && export PATH="${HOME}/.emacs.d/bin:${PATH}"
-
 # Tell ripgrep where to look for configuration.
 export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/config"
 

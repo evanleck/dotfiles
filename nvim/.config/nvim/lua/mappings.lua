@@ -5,9 +5,6 @@ local api = vim.api
 map('n', 'j', 'gj', { remap = true })
 map('n', 'k', 'gk', { remap = true })
 
--- Doom Emacs kinda set the stage for this one...
-map('n', '<Space>', '', { remap = true })
-
 -- Copy to clipboard in normal, visual, select and operator modes
 map('', '<Leader>y', '"+y')
 
