@@ -1,4 +1,4 @@
-set --local editors "nvim" "hx" "vim"
+set --local editors "hx" "nvim" "vim"
 
 for editor in $editors;
 	if type -q $editor

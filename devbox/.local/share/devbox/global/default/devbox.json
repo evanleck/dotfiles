@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "bat@latest",
+    "delta@latest",
+    "direnv@latest",
+    "eza@latest",
+    "fd@latest",
+    "fish@latest",
+    "fishPlugins.autopair@latest",
+    "fishPlugins.hydro@latest",
+    "fishPlugins.sponge@latest",
+    "fishPlugins.z@latest",
+    "git@latest",
+    "helix@latest",
+    "lazygit@latest",
+    "neovim@latest",
+    "ripgrep@latest"
+  ]
+}

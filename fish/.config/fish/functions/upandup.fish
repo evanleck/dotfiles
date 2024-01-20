@@ -1,4 +1,4 @@
-function upandup --description "Update Homebrew, asdf, fisher, and Doom"
+function upandup --description "Update Homebrew, asdf, fisher, and Devbox"
 	# Homebrew
 	if type -q brew
 		brew update
@@ -16,8 +16,9 @@ function upandup --description "Update Homebrew, asdf, fisher, and Doom"
 		exec fish
 	end
 
-	# Doom
-	if type -q doom
-		doom upgrade
+	# Devbox
+	if type -q devbox
+		devbox version update
+		devbox global update
 	end
 end

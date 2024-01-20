@@ -1,0 +1,25 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "stow@latest": {
+      "last_modified": "2024-01-14T03:55:27Z",
+      "resolved": "github:NixOS/nixpkgs/dd5621df6dcb90122b50da5ec31c411a0de3e538#stow",
+      "source": "devbox-search",
+      "version": "2.3.1",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/nqgk143y6ic25rja5mi12wpp8bm8p9sa-stow-2.3.1"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/2yi8998myy0rwagyzwhx9a8npwm8x80x-stow-2.3.1"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/rm7j3zgaxipsfmpvwvbwff2a20m6blma-stow-2.3.1"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/wd8vjmgv6cqj0ck4bnrw4mfn759d434f-stow-2.3.1"
+        }
+      }
+    }
+  }
+}
