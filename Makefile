@@ -15,3 +15,8 @@ stow:
 Brewfile:
 	brew bundle dump --force
 .PHONY: Brewfile
+
+bin/.bin/asimov:
+	curl --output bin/.bin/asimov https://raw.githubusercontent.com/stevegrunwell/asimov/develop/asimov
+	chmod +x bin/.bin/asimov
+.PHONY: bin/.bin/asimov
