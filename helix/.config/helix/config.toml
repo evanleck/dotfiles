@@ -1,3 +1,4 @@
+# https://docs.helix-editor.com/keymap.html
 # https://github.com/helix-editor/helix/blob/master/book/src/configuration.md
 # https://github.com/langston-barrett/spacelix/blob/main/src/spacelix.toml
 theme = "catppuccin_mocha"
@@ -70,3 +71,4 @@ p = "goto_previous_buffer"
 
 [keys.normal.g]
 "q" = ":reflow"
+"s" = ["split_selection_on_newline", ":sort", "collapse_selection", "keep_primary_selection"]
