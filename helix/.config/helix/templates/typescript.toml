@@ -1,0 +1,13 @@
+[[language]]
+name = "javascript"
+formatter = { command = "npx", args = ["--no-install", "prettier"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = "npx", args = ["--no-install", "prettier", "--parser", "typescript"] }
+auto-format = true
+
+[language-server.typescript-language-server]
+command = "npx"
+args = ["--no-install", "typescript-language-server", "--stdio"]

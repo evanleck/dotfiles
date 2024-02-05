@@ -1,0 +1,3 @@
+[language-server.solagraph]
+command = "bundle"
+args = ["exec", "solargraph", "stdio"]
