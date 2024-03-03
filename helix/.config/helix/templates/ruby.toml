@@ -1,3 +1,15 @@
-[language-server.solagraph]
+# Based on https://github.com/helix-editor/helix/issues/2623#issuecomment-1787086366
+[language-server.solargraph]
 command = "bundle"
 args = ["exec", "solargraph", "stdio"]
+config = { diagnostics = false, formatting = false }
+
+[language-server.rubocop]
+command = "bundle"
+args = ["exec", "rubocop", "--lsp", "--stderr", "--fail-level", "fatal"]
+timeout = 3
+
+[[language]]
+name = "ruby"
+language-servers = ["rubocop", { name = "solargraph", except-features = [ "format", "diagnostics" ] }]
+auto-format = true
