@@ -1,0 +1,18 @@
+blocks:
+  - permission
+  - size
+  - date
+  - git
+  - name
+
+color:
+  theme: custom
+
+date: '+%_d %b %y %H:%M'
+display: almost-all
+header: true
+
+icons:
+  when: never
+
+total-size: true
