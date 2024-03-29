@@ -1,3 +1,3 @@
 !ssh/.ssh/config
-nvim/.config/nvim/lazy-lock.json
 ssh/.ssh
+fish/.config/fish/fish_variables
