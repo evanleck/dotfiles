@@ -31,6 +31,7 @@ useBuiltin = false
 
 [delta]
 syntax-theme = Catppuccin-mocha
+tabs = 2
 
 [mergetool]
 keepBackup = true
