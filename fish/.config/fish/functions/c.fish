@@ -1,3 +1,3 @@
 function c --wraps clear --description "Clear the screen"
-	command clear
+    command clear
 end

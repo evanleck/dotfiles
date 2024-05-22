@@ -1,5 +1,5 @@
 if type -q devbox
-	function db --wraps devbox
-		command devbox $argv
-	end
+    function db --wraps devbox
+        command devbox $argv
+    end
 end
