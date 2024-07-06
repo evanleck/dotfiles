@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/0.12.0/.schema/devbox.schema.json",
   "packages": [
     "stow@latest"
   ]
