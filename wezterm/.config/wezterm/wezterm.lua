@@ -4,6 +4,7 @@ local keys = require 'keys'
 local fish = wezterm.home_dir .. '/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/fish'
 
 return {
+  adjust_window_size_when_changing_font_size = false,
   bold_brightens_ansi_colors = "BrightAndBold",
   color_scheme = "Catppuccin Mocha",
   default_prog = { fish, '-l' },
