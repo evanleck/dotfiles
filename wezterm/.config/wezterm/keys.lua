@@ -1,6 +1,14 @@
 local wezterm = require 'wezterm'
 
 return {
+  -- Fullscreen
+  {
+    key = 'f',
+    mods = 'CMD|CTRL',
+    action = wezterm.action.ToggleFullScreen,
+  },
+
+  -- Panes
   {
     key = 'd',
     mods = 'CMD',
@@ -16,11 +24,6 @@ return {
       direction = 'Down',
       size = { Percent = 50 },
     },
-  },
-  {
-    key = 'f',
-    mods = 'CMD|CTRL',
-    action = wezterm.action.ToggleFullScreen,
   },
   {
     key = 'w',
