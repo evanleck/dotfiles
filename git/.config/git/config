@@ -10,7 +10,6 @@ quotepath = false
 
 [alias]
 b = branch
-c = commit
 co = checkout
 d = diff
 ds = diff --staged
