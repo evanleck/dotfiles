@@ -8,6 +8,7 @@ bufferline = "never" # turns out this is more distracting than I expected
 color-modes = true
 cursorline = true
 line-number = "absolute"
+popup-border = "all"
 scrolloff = 2
 
 [editor.cursor-shape]
