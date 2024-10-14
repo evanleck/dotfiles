@@ -1,5 +1,5 @@
 if type -q lazygit
-    function gg --wraps lazygit
+    function lg --wraps lazygit
         command lazygit $argz
     end
 end
