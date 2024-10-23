@@ -14,5 +14,10 @@
     "helix@latest",
     "lazygit@latest",
     "ripgrep@latest"
-  ]
+  ],
+  "shell": {
+    "scripts": {
+      "gc": "nix store gc --extra-experimental-features nix-command"
+    }
+  }
 }
