@@ -1,9 +1,9 @@
+[general]
 import = [
   "~/.config/alacritty/themes/catppuccin-mocha.toml"
-  # "~/.config/alacritty/themes/catppuccin-latte.toml"
 ]
 
-[shell]
+[terminal.shell]
 program = "/Users/evan/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/fish"
 args = ["-l"]
 
