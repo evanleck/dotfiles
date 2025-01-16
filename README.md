@@ -3,10 +3,10 @@
 These are my dotfiles. [There](ap) [are](gb) [many](jf) [like](xero) them, but
 these are mine.
 
-Global and project-local packages are managed by [Devbox](devbox). This replaces
-tools I've used previously including [Homebrew](brew), [asdf](asdf), and
-[Fisher](fisher). Configuration files for some of those tools have been retained
-until I can migrate all my systems to use Devbox.
+Global and project-local packages are managed by
+[mise-en-place](https://mise.jdx.dev). This replaces tools I've used
+previously including [Devbox](devbox), [Homebrew](brew), [asdf](asdf), and
+[Fisher](fisher).
 
 Placement is powered by [stow](stow) and inspired in great part by "[Managing
 dotfiles with GNU stow](managing)."

@@ -23,3 +23,5 @@ HISTFILESIZE=2000
 # Check the window size after each command and, if necessary, update the values
 # of LINES and COLUMNS.
 shopt -s checkwinsize
+
+eval "$($HOME/.local/bin/mise activate bash)"
