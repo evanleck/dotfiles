@@ -1,9 +1,9 @@
 [tools]
-"aqua:helix-editor/helix" = "latest"
 bat = "latest"
 delta = "latest"
 eza = "latest"
 fd = "latest"
+helix = "latest"
 lazygit = "latest"
 ripgrep = "latest"
 usage = "latest"
