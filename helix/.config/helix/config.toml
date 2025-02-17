@@ -13,7 +13,7 @@ popup-border = "all"
 scrolloff = 2
 
 [editor.inline-diagnostics]
-cursor-line = "error"
+cursor-line = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -33,7 +33,7 @@ left = ["mode", "spinner", "file-name", "version-control"]
 [editor.whitespace.render]
 newline = "none"
 space = "none"
-tab = "all"
+tab = "none"
 
 [editor.whitespace.characters]
 tab = "›"
