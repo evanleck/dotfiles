@@ -4,7 +4,7 @@
 theme = "catppuccin_mocha"
 
 [editor]
-bufferline = "never" # turns out this is more distracting than I expected
+bufferline = "never"             # turns out this is more distracting than I expected
 color-modes = true
 cursorline = true
 end-of-line-diagnostics = "hint"
@@ -76,4 +76,9 @@ p = "goto_previous_buffer"
 
 [keys.normal.g]
 "q" = ":reflow"
-"s" = ["split_selection_on_newline", ":sort", "collapse_selection", "keep_primary_selection"]
+"s" = [
+  "split_selection_on_newline",
+  ":sort",
+  "collapse_selection",
+  "keep_primary_selection",
+]

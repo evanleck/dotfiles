@@ -11,5 +11,11 @@ timeout = 3
 
 [[language]]
 name = "ruby"
-language-servers = ["rubocop", { name = "solargraph", except-features = [ "format", "diagnostics" ] }]
+language-servers = [
+  "rubocop",
+  { name = "solargraph", except-features = [
+    "format",
+    "diagnostics",
+  ] },
+]
 auto-format = true

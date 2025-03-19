@@ -5,7 +5,12 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-formatter = { command = "npx", args = ["--no-install", "prettier", "--parser", "typescript"] }
+formatter = { command = "npx", args = [
+  "--no-install",
+  "prettier",
+  "--parser",
+  "typescript",
+] }
 auto-format = true
 
 [language-server.typescript-language-server]
