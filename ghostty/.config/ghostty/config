@@ -1,6 +1,5 @@
 cursor-style = block
 font-family = JetBrains Mono
-macos-icon = xray
 shell-integration-features = no-cursor
 theme = catppuccin-mocha
 window-inherit-working-directory = true
