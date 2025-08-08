@@ -27,9 +27,6 @@ hidden = false
 display-messages = true
 display-inlay-hints = true
 
-[editor.statusline]
-left = ["mode", "spinner", "file-name", "version-control"]
-
 [editor.whitespace.render]
 newline = "none"
 space = "none"
