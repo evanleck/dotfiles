@@ -1,0 +1,18 @@
+blocks:
+  - permission
+  - size
+  - date
+  - git
+  - name
+
+color:
+  theme: custom
+
+date: 'relative'
+display: almost-all
+header: true
+
+icons:
+  when: never
+
+total-size: false
