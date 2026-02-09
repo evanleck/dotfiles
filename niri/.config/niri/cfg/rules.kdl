@@ -1,0 +1,15 @@
+window-rule {
+    geometry-corner-radius 10 // Set every window radius
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
