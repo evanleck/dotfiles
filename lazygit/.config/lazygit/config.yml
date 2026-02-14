@@ -3,12 +3,10 @@ gui:
   showCommandLog: false
   showFileTree: false
   showRandomTip: false
-
   theme:
     selectedLineBgColor:
       - default
-
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --line-numbers
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --line-numbers
