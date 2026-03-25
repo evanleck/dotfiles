@@ -1,4 +1,5 @@
-set --local editors hx nvim vim
+# Arch registers Helix as `helix` instead of `hx` so I check for both.
+set --local editors helix hx nvim vim
 
 for editor in $editors
     if type -q $editor
