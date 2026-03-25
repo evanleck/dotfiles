@@ -1,5 +1,6 @@
 cursor-style = block
-font-family = JetBrains Mono
+font-family = Maple Mono
+font-size = 9
 shell-integration-features = no-cursor
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 window-inherit-working-directory = true
