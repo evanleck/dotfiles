@@ -23,9 +23,12 @@ multiplier = 3
 [colors]
 draw_bold_text_with_bright_colors = true
 
+# Neon, Argon, Xenon, Radon, Krypton
 [font]
-normal = { family = "Maple Mono" }
-size = 10
+normal = { family = "Monaspace Neon" }
+italic = { family = "Monaspace Radon" } # Make comments look all handwritten and shit
+offset = { y = 0 }
+size = 8.5
 
 [selection]
 save_to_clipboard = true

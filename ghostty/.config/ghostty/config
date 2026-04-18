@@ -1,6 +1,7 @@
 cursor-style = block
-font-family = Maple Mono
-font-size = 9
+font-family = Monaspace Neon
+font-family-italic = Monaspace Radon
+font-size = 8.5
 shell-integration-features = no-cursor
 theme = Catppuccin Mocha
 window-inherit-working-directory = true
