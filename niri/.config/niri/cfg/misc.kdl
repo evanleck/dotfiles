@@ -1,6 +1,5 @@
 prefer-no-csd
 screenshot-path null
-
 environment {
 	ELECTRON_OZONE_PLATFORM_HINT "auto"
 	QT_QPA_PLATFORM "wayland"
@@ -9,12 +8,16 @@ environment {
 	XDG_CURRENT_DESKTOP "niri"
 	QT_QPA_PLATFORMTHEME "gtk3"
 }
-
+cursor {
+	hide-when-typing
+	xcursor-theme "Bibata-Modern-Ice"
+	xcursor-size 24
+}
 debug {
 	// Allows notification actions and window activation from Noctalia.
 	honor-xdg-activation-with-invalid-serial
 }
-
 hotkey-overlay {
 	skip-at-startup
 }
+

@@ -1,25 +1,38 @@
 window-rule {
-	geometry-corner-radius 10 // Set every window radius
+	// Set every window radius
+	geometry-corner-radius 10
 	clip-to-geometry true
-
 	focus-ring {
-		// off
 		on
 		width 2
-		// active-color "#7fc8ff"
 		active-color "#000"
 		inactive-color "#505050"
 		urgent-color "#9b0000"
 	}
 }
-
 layer-rule {
 	match namespace="^noctalia-wallpaper*"
 	place-within-backdrop true
 }
-
 overview {
 	workspace-shadow {
 		off
 	}
 }
+window-rule {
+	match app-id="firefox"
+	default-column-width {
+		proportion 0.8
+	}
+}
+window-rule {
+	match app-id="steam"
+	exclude title="^[Ss]team$"
+	open-floating true
+}
+window-rule {
+	match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
+	default-floating-position x=10 y=10 relative-to="bottom-right"
+	open-focused false
+}
+

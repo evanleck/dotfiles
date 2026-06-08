@@ -1,24 +1,28 @@
 // ────────────── Input Configuration ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
-
 input {
 	keyboard {
 		xkb {
-			layout "us" // Use the American keyboard layout
-			options "caps:escape" // "ctrl:swap_lalt_lctl,caps:escape"
+			// Use the American keyboard layout
+			layout "us"
+			// "ctrl:swap_lalt_lctl,caps:escape"
+			options "caps:escape"
 		}
-		numlock // Enable numlock on startup
+		// Enable numlock on startup
+		numlock
 	}
-
 	touchpad {
-		tap // Enable tap-to-click
-		natural-scroll // Enable natural (macOS-style) scrolling
+		// Enable tap-to-click
+		tap
+		// Enable natural (macOS-style) scrolling
+		natural-scroll
 	}
-
 	mouse {
-		natural-scroll // Enable natural (macOS-style) scrolling
+		// Enable natural (macOS-style) scrolling
+		natural-scroll
 	}
-
-	focus-follows-mouse // Automatically focus windows under the mouse pointer
-	workspace-auto-back-and-forth // Enable workspace back & forth switching
+	// Automatically focus windows under the mouse pointer
+	focus-follows-mouse
+	// Enable workspace back & forth switching
+	workspace-auto-back-and-forth
 }

@@ -1,4 +1,16 @@
 [[language]]
+name = "kdl"
+auto-format = true
+formatter = { command = "kdlfmt", args = [
+  "format",
+  "--kdl-version",
+  "v1",
+  "--config",
+  "/home/evan/.dotfiles/kdlfmt.kdl",
+  "--stdin",
+] }
+
+[[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["format", "-"] }
 auto-format = true
