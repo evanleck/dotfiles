@@ -7,6 +7,7 @@ dynamic_padding = true
 decorations = "full"
 title = "Alacritty@CachyOS"
 decorations_theme_variant = "Dark"
+padding = { x = 1, y = 1 }
 
 [window.dimensions]
 columns = 100
