@@ -28,7 +28,8 @@ diffFilter = delta --color-only
 useBuiltin = false
 
 [delta]
-syntax-theme = Catppuccin Mocha
+# syntax-theme = Catppuccin Mocha
+syntax-theme = Rose-Pine
 tabs = 2
 
 [mergetool]

@@ -1,7 +1,8 @@
 # https://docs.helix-editor.com/keymap.html
 # https://github.com/helix-editor/helix/blob/master/book/src/configuration.md
 # https://github.com/langston-barrett/spacelix/blob/main/src/spacelix.toml
-theme = "catppuccin_mocha"
+# theme = "catppuccin_mocha"
+theme = "rose_pine"
 
 [editor]
 bufferline = "never"             # turns out this is more distracting than I expected
