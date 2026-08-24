@@ -1,44 +1,44 @@
 [palette]
-bg = "#191724"
-chrome = "#1f1d2e"
-chrome_alt = "#14121d"
-panel = "#1f1d2e"
-panel_alt = "#191724"
-surface = "#26233a"
-elevated = "#403d52"
-border = "#403d52"
+bg = "#232136"
+chrome = "#2a273f"
+chrome_alt = "#1e1c30"
+panel = "#2a273f"
+panel_alt = "#232136"
+surface = "#393552"
+elevated = "#44415a"
+border = "#44415a"
 text = "#e0def4"
 muted = "#908caa"
-accent = "#ebbcba"
-accent_soft = "#26233a"
+accent = "#ea9a97"
+accent_soft = "#393552"
 accent_text = "#e0def4"
-selected_bg = "#403d52"
-selected_border = "#ebbcba"
+selected_bg = "#44415a"
+selected_border = "#ea9a97"
 selection_bar = "#f6c177"
 yank_bar = "#9ccfd8"
 cut_bar = "#eb6f92"
-progress_bar = "#ebbcba"
-grid_selection_band = "#3c2e1e"
-grid_yank_band = "#163238"
-grid_cut_band = "#3c1825"
-sidebar_active = "#26233a"
-button_bg = "#1f1d2e"
-button_disabled_bg = "#191724"
-path_bg = "#1f1d2e"
+progress_bar = "#ea9a97"
+grid_selection_band = "#423321"
+grid_yank_band = "#1c3740"
+grid_cut_band = "#401e2b"
+sidebar_active = "#393552"
+button_bg = "#2a273f"
+button_disabled_bg = "#232136"
+path_bg = "#2a273f"
 
 [preview.code]
 fg = "#e0def4"
-bg = "#191724"
-selection_bg = "#403d52"
+bg = "#232136"
+selection_bg = "#44415a"
 selection_fg = "#e0def4"
-caret = "#ebbcba"
-line_highlight = "#21202e"
+caret = "#ea9a97"
+line_highlight = "#2a283e"
 line_number = "#6e6a86"
 comment = "#6e6a86"
 string = "#f6c177"
-constant = "#ebbcba"
-keyword = "#31748f"
-function = "#ebbcba"
+constant = "#ea9a97"
+keyword = "#3e8fb0"
+function = "#ea9a97"
 type = "#9ccfd8"
 parameter = "#c4a7e7"
 tag = "#9ccfd8"
@@ -50,13 +50,13 @@ invalid = "#eb6f92"
 color = "#9ccfd8"
 
 [classes.code]
-color = "#31748f"
+color = "#3e8fb0"
 
 [classes.config]
 color = "#c4a7e7"
 
 [classes.document]
-color = "#ebbcba"
+color = "#ea9a97"
 
 [classes.license]
 color = "#f6c177"
@@ -71,13 +71,13 @@ color = "#f6c177"
 color = "#eb6f92"
 
 [classes.archive]
-color = "#ebbcba"
+color = "#ea9a97"
 
 [classes.font]
 color = "#c4a7e7"
 
 [classes.data]
-color = "#31748f"
+color = "#3e8fb0"
 
 [classes.file]
 color = "#908caa"
@@ -176,19 +176,19 @@ color = "#9ccfd8"
 
 [directories."documents"]
 icon = "󰲃"
-color = "#ebbcba"
+color = "#ea9a97"
 
 [directories."Documents"]
 icon = "󰲃"
-color = "#ebbcba"
+color = "#ea9a97"
 
 [directories."documentos"]
 icon = "󰲃"
-color = "#ebbcba"
+color = "#ea9a97"
 
 [directories."Documentos"]
 icon = "󰲃"
-color = "#ebbcba"
+color = "#ea9a97"
 
 [directories."downloads"]
 icon = "󰉍"
@@ -381,12 +381,12 @@ color = "#6e6a86"
 [extensions.lock]
 class = "data"
 icon = "󰈡"
-color = "#31748f"
+color = "#3e8fb0"
 
 [extensions.rs]
 class = "code"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [extensions.ts]
 class = "code"
@@ -491,12 +491,12 @@ color = "#c4a7e7"
 [extensions.vue]
 class = "code"
 icon = ""
-color = "#31748f"
+color = "#3e8fb0"
 
 [extensions.svelte]
 class = "code"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [extensions.astro]
 class = "code"
@@ -541,7 +541,7 @@ color = "#9ccfd8"
 [extensions.scss]
 class = "code"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [extensions.md]
 class = "document"
@@ -581,7 +581,7 @@ color = "#908caa"
 [extensions.sql]
 class = "data"
 icon = ""
-color = "#31748f"
+color = "#3e8fb0"
 
 [extensions.nix]
 class = "config"
@@ -641,7 +641,7 @@ color = "#c4a7e7"
 [files."Cargo.lock"]
 class = "data"
 icon = "󰈡"
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."package.json"]
 class = "config"
@@ -651,7 +651,7 @@ color = "#9ccfd8"
 [files."package-lock.json"]
 class = "data"
 icon = "󰈡"
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."tsconfig.json"]
 class = "config"
@@ -661,7 +661,7 @@ color = "#9ccfd8"
 [files."Dockerfile"]
 class = "config"
 icon = "󰡨"
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."compose.yml"]
 class = "config"
@@ -731,7 +731,7 @@ color = "#c4a7e7"
 [files.".env"]
 class = "config"
 icon = "󰒓"
-color = "#31748f"
+color = "#3e8fb0"
 
 [files.".npmrc"]
 class = "config"
@@ -781,17 +781,17 @@ color = "#908caa"
 [files."deno.json"]
 class = "config"
 icon = ""
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."deno.jsonc"]
 class = "config"
 icon = ""
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."poetry.lock"]
 class = "data"
 icon = "󰈡"
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."requirements.txt"]
 class = "document"
@@ -806,7 +806,7 @@ color = "#9ccfd8"
 [files."go.sum"]
 class = "data"
 icon = ""
-color = "#31748f"
+color = "#3e8fb0"
 
 [files."vite.config.ts"]
 class = "config"
@@ -861,17 +861,17 @@ color = "#c4a7e7"
 [files."prettier.config.js"]
 class = "config"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [files."prettier.config.mjs"]
 class = "config"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [files."prettier.config.ts"]
 class = "config"
 icon = ""
-color = "#ebbcba"
+color = "#ea9a97"
 
 [files."postcss.config.js"]
 class = "config"
@@ -896,4 +896,4 @@ color = "#f6c177"
 [files."vitest.config.ts"]
 class = "config"
 icon = "󰙨"
-color = "#31748f"
+color = "#3e8fb0"
