@@ -1,3 +1,8 @@
 [ui]
-show_top_bar = true # show top bar (default hidden)
-show_hidden = true  # show dotfiles by default
+show_top_bar = false
+show_hidden = true
+
+[layout.panes]
+places = 10
+files = 35
+preview = 55
