@@ -3,10 +3,49 @@ gui:
   showCommandLog: false
   showFileTree: false
   showRandomTip: false
+
   theme:
+    activeBorderColor:
+      - "#31748f"
+      - bold
+
+    inactiveBorderColor:
+      - "#6e6a86"
+
+    searchingActiveBorderColor:
+      - "#ebbcba"
+      - bold
+
+    optionsTextColor:
+      - "#9ccfd8"
+
     selectedLineBgColor:
-      - default
+      - "#26233a"
+
+    inactiveViewSelectedLineBgColor:
+      - "#26233a"
+      - bold
+
+    cherryPickedCommitFgColor:
+      - "#1f1d2e"
+
+    cherryPickedCommitBgColor:
+      - "#ebbcba"
+
+    markedBaseCommitFgColor:
+      - "#1f1d2e"
+
+    markedBaseCommitBgColor:
+      - "#f6c177"
+
+    unstagedChangesColor:
+      - "#eb6f92"
+
+    defaultFgColor:
+      - "#e0def4"
+
 git:
+  mainBranches: []
   diffRenderers:
     - colorArg: always
-      command: delta --dark --paging=never --line-numbers
+      command: delta --dark --paging=never --features="rose-pine"

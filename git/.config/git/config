@@ -32,6 +32,27 @@ useBuiltin = false
 syntax-theme = Rose-Pine
 tabs = 2
 
+[delta "rose-pine"]
+dark = true
+syntax-theme = Rose-Pine
+line-numbers = true
+side-by-side = false
+file-style = brightwhite
+file-decoration-style = none
+file-added-label = [+]
+file-copied-label = [==]
+file-modified-label = [*]
+file-removed-label = [-]
+file-renamed-label = [->]
+hunk-header-decoration-style = "#3e3e43" box ul
+plus-style = syntax auto
+plus-emph-style = syntax auto
+minus-style = syntax auto
+minus-emph-style = syntax auto
+line-numbers-minus-style = "#eb6f92"
+line-numbers-plus-style = "#9ccfd8"
+tabs = 2
+
 [mergetool]
 keepBackup = true
 prompt = false
