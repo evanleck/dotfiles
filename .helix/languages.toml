@@ -12,5 +12,5 @@ formatter = { command = "kdlfmt", args = [
 
 [[language]]
 name = "toml"
-formatter = { command = "taplo", args = ["format", "-"] }
 auto-format = true
+language-servers = ["tombi"]
