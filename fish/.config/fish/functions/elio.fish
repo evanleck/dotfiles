@@ -1,9 +1,16 @@
-# >>> elio shell integration >>>
 function elio
     switch "$argv[1]"
-        case shell '-*'
+        case shell portal '-*'
             command elio $argv
             return $status
+    end
+
+    for arg in $argv
+        switch "$arg"
+            case --chooser-file '--chooser-file=*'
+                command elio $argv
+                return $status
+        end
     end
 
     set -l tmp (mktemp -t "elio-cwd.XXXXXX")
@@ -24,4 +31,3 @@ function elio
 
     return $status_code
 end
-# <<< elio shell integration <<<
